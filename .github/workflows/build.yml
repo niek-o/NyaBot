@@ -1,0 +1,19 @@
+name: Build Test
+
+on: [pull_request, workflow_dispatch]
+
+jobs:
+  build:
+    name: Build application on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "17"
+      - run: |
+          yarn
+          yarn build

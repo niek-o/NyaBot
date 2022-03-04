@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "ES2017",
+    "moduleResolution": "node",
+    "outDir": "build",
+    "declaration": false,
+    "module": "commonjs",
+    "forceConsistentCasingInFileNames": false
+  }
+}
