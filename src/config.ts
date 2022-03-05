@@ -1,6 +1,6 @@
 import { INyaOptions } from "./utils/Typings";
 
-export default {
+const nyaOptions: INyaOptions = {
     // Discord data
     discord: {
         token: "", // Discord bot token
@@ -38,4 +38,6 @@ export default {
             secret: "", // Spotify app secret
         },
     },
-} as INyaOptions;
+};
+    
+export default nyaOptions
