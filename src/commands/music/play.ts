@@ -3,6 +3,7 @@ import { CommandInteraction, GuildMember } from "discord.js"
 import { SearchResult, } from "erela.js";
 import { logger } from "../../utils/logger";
 import { NyaClient } from "../../nya";
+import nyaOptions from "../../config";
 
 export default {
     data: new SlashCommandBuilder()
@@ -28,9 +29,9 @@ export default {
             guild: interaction.guild.id,
             voiceChannel: interaction.member.voice.channelId,
             textChannel: interaction.channel.id,
+            volume: nyaOptions.music.options.volume,
+            selfDeafen: nyaOptions.music.options.deafenOnJoin
         });
-
-        player.setVolume(50);
 
         if (!player) return interaction.reply("there is no player for this guild.");
 
@@ -39,11 +40,12 @@ export default {
 
         if (player.state !== "CONNECTED") player.connect();
 
-        let query: Array<string> | string = interaction.options.getString('query', true);
+        let query: string = interaction.options.getString('query', true);
 
-        const req = async (i: string) => await (client.manager.search(i, interaction.user).catch(error => {
-            logger.error(error);
-        }));
+        const req = async (i: string) => await (client.manager.search(i, interaction.user)
+            .catch(error => {
+                logger.error(error);
+            }));
 
         const res = await req(query) as SearchResult;
 
