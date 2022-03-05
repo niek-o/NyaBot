@@ -25,7 +25,8 @@ const nyaOptions: INyaOptions = {
                 pointerEmote: "", // The middle pointer emote
                 endingPointerEmote: "", // The last pointer emote
                 width: 10, // Progress bar width
-            },
+            }
+        },
         // Lavalink data
         lavalink: {
             host: "0.0.0.0", // Lavalink host
