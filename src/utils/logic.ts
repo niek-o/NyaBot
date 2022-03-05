@@ -13,8 +13,11 @@ export function generateNowPlayingData(songDuration: number, currentTimestamp: n
 }
 
 function msToTime(ms: number) {
-    const date = new Date(ms);
-    return date.toLocaleTimeString('UTC', { hour: "2-digit", minute: "2-digit", second: "2-digit", timeZone: "UTC" });
+    const seconds: string = ("0" + Math.floor(((ms % 360000) % 60000) / 1000)).slice(-2)
+    const minutes: string = ("0" + Math.floor((ms % 3600000) / 60000)).slice(-2)
+    const hours: string = ("0" + Math.floor(ms / 3600000)).slice(-2)
+
+    return `${hours}:${minutes}:${seconds}`
 }
 
 function generateProgressBar(songDuration: number, currentTimestamp: number) {
