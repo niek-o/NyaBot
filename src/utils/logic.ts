@@ -1,3 +1,4 @@
+import { Player } from "erela.js";
 import { promisify } from "node:util";
 import nyaOptions from "../config";
 
@@ -38,4 +39,22 @@ function generateProgressBar(songDuration: number, currentTimestamp: number) {
             return fullBeginningEmote + fullMidEmote.repeat(progress - 1) + emptyMidEmote.repeat(whitespace) + endingPointerEmote;
         }
     }
+}
+
+export function generateQueue(player: Player) {
+    if (!player.queue.current || player.queue.length === 0) return "There are no songs in the queue."
+
+    const queueArray: string[] = [];
+
+    queueArray.push(`NOW PLAYING: ${player.queue.current.title} \n ----------------------------- \n`)
+
+    for (const track of player.queue) {
+        queueArray.push(`${player.queue.indexOf(track) + 1}: ${track.author} - ${track.title} \n`)
+        if (queueArray.length >= 10) {
+            queueArray.push(`${player.queue.length - 10} other tracks.`)
+            break
+        }
+    };
+
+    return `\`\`\`yml\n${(queueArray.toString()).replace(/,/g, "")}\n\`\`\``
 }

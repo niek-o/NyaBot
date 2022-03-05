@@ -22,6 +22,8 @@ export default {
             || !interaction.channel)
             return;
 
+        await interaction.deferReply()
+
         const client = interaction.client as NyaClient;
 
         // Create a new player. This will return the player if it already exists.
@@ -33,10 +35,10 @@ export default {
             selfDeafen: nyaOptions.music.options.deafenOnJoin
         });
 
-        if (!player) return interaction.reply("there is no player for this guild.");
+        if (!player) return interaction.editReply("there is no player for this guild.");
 
-        if (!interaction.member.voice.channel) return interaction.reply("you need to join a voice channel.");
-        if (interaction.member.voice.channel.id !== player.voiceChannel) return interaction.reply("you're not in the same voice channel.");
+        if (!interaction.member.voice.channel) return interaction.editReply("you need to join a voice channel.");
+        if (interaction.member.voice.channel.id !== player.voiceChannel) return interaction.editReply("you're not in the same voice channel.");
 
         if (player.state !== "CONNECTED") player.connect();
 
@@ -57,18 +59,18 @@ export default {
         switch (res.loadType) {
             case "NO_MATCHES":
                 if (!player.queue.current) player.destroy();
-                return interaction.reply("There were no results found");
+                return interaction.editReply("There were no results found");
             case "TRACK_LOADED":
             case "SEARCH_RESULT":
                 player.queue.add(res.tracks[0]);
 
                 if (!player.playing && !player.queue.size) player.play();
-                return interaction.reply(`Enqueing ${res.tracks[0].title}`);
+                return interaction.editReply(`Enqueing ${res.tracks[0].title}`);
             case "PLAYLIST_LOADED":
                 player.queue.add(res.tracks);
 
                 if (!player.playing && player.queue.totalSize === res.tracks.length) player.play()
-                return interaction.reply(`Enqueing ${res.playlist?.name} with ${res.tracks.length} tracks.`);
+                return interaction.editReply(`Enqueing ${res.playlist?.name} with ${res.tracks.length} tracks.`);
         }
     }
 }

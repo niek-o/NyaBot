@@ -4,8 +4,8 @@ import { NyaClient } from "../../nya";
 
 export default {
     data: new SlashCommandBuilder()
-        .setName("destroy")
-        .setDescription("Destroy the player."),
+        .setName("stop")
+        .setDescription("Stop the player."),
     async execute(interaction: CommandInteraction) {
         if (!interaction.guild
             || !interaction.member
