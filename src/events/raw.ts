@@ -1,9 +1,9 @@
-import { VoicePacket } from "erela.js"
-import { client } from "../nya"
+import { VoicePacket } from "erela.js";
+import { client } from "../nya";
 
 export = {
-    name: "raw",
-    async execute(d: VoicePacket) {
-        client.manager.updateVoiceState(d)
-    }
-}
+	name: "raw",
+	async execute(d: VoicePacket) {
+		client.manager.updateVoiceState(d);
+	}
+};

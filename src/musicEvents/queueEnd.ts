@@ -1,24 +1,25 @@
-import { logger } from "../utils/logger";
-import { Player, Track } from "erela.js";
-import { client } from "../nya";
 import { TextChannel } from "discord.js";
-import { timeout } from "../utils/logic";
+import { Player } from "erela.js";
 import nyaOptions from "../config";
+import { client } from "../nya";
+import { logger } from "../utils/logger";
+import { timeout } from "../utils/logic";
 
 export = {
-    name: "queueEnd",
-    async execute(player: Player) {
-        const channel = client.channels.cache.find(channel => channel.id === player.textChannel)
+	name: "queueEnd",
+	async execute(player: Player) {
+		const channel = client.channels.cache.find(channel => channel.id === player.textChannel);
 
-        if (channel instanceof TextChannel) {
-            channel.send("The queue has ended")
-        }
+		if (channel instanceof TextChannel) {
+			await channel.send("The queue has ended");
+		}
 
-        logger.log(`${client.guilds.cache.get(player.guild)?.name}: Queue has ended`)
+		logger.log(`${client.guilds.cache.get(player.guild)?.name}: Queue has ended`);
 
-        if (nyaOptions.music.options.leaveOnQueueEnd) {
-            await timeout(nyaOptions.music.options.timeOut)
-            player.destroy();
-        }
-    }
-}
+		await timeout(nyaOptions.music.options.timeOut);
+
+		if (nyaOptions.music.options.leaveOnQueueEnd && !player.playing) {
+			player.destroy();
+		}
+	}
+};

@@ -1,1 +1,1 @@
-export * from './asciifier'
+export * from "./asciifier";
