@@ -1,6 +1,10 @@
 {
-    "tabWidth": 2,
-    "useTabs": false,
-    "printWidth": 124,
-    "endOfLine": "lf"
+  "tabWidth": 4,
+  "useTabs": true,
+  "printWidth": 124,
+  "endOfLine": "lf",
+  "semi": true,
+  "singleQuote": false,
+  "bracketSpacing": true,
+  "arrowParens": "always"
 }

@@ -24,7 +24,7 @@ type discordOptions = {
 	token: string;
 	clientId: string;
 	guildId: string;
-}
+};
 
 /**
  * The options for the music module
@@ -35,10 +35,10 @@ type discordOptions = {
  * @author Niek
  */
 type musicOptions = {
-	options: playerOptions
-	lavalink: lavalinkOptions
-	spotify: spotifyOptions
-}
+	options: playerOptions;
+	lavalink: lavalinkOptions;
+	spotify: spotifyOptions;
+};
 
 /**
  * The options for the music player
@@ -56,7 +56,7 @@ type playerOptions = {
 	volume: number;
 	deafenOnJoin: boolean;
 	progressBar: progressBarOptions;
-}
+};
 
 /**
  * The options for the progress bar
@@ -80,7 +80,7 @@ type progressBarOptions = {
 	pointerEmote: string;
 	endingPointerEmote: string;
 	width: number;
-}
+};
 
 /**
  * The options for lavalink
@@ -94,7 +94,7 @@ type lavalinkOptions = {
 	host: string;
 	port: number;
 	password: string;
-}
+};
 
 /**
  * The options for spotify integration
@@ -106,7 +106,7 @@ type lavalinkOptions = {
 type spotifyOptions = {
 	id: string;
 	secret: string;
-}
+};
 
 /**
  * The color options for the logger
@@ -118,4 +118,4 @@ type spotifyOptions = {
 type loggerColors = {
 	color: string;
 	errorColor: string;
-}
+};

@@ -19,5 +19,5 @@ export = {
 		logger.log(`Logged in as ${client.user.tag}`);
 		logger.log(`Currently serving ${client.guilds.cache.size} servers`);
 		logger.log();
-	}
+	},
 };

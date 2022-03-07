@@ -8,7 +8,7 @@ export interface ICommand {
 	execute: SlashCommandExecute;
 }
 
-export type SlashCommandExecute = (interaction: CommandInteraction) => Awaitable<void>
+export type SlashCommandExecute = (interaction: CommandInteraction) => Awaitable<void>;
 
 /**
  * The color type for the logger
@@ -19,5 +19,5 @@ export type SlashCommandExecute = (interaction: CommandInteraction) => Awaitable
  */
 export type DefaultColors = {
 	color: Color;
-	errorColor: Color
-}
+	errorColor: Color;
+};

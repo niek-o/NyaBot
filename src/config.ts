@@ -4,7 +4,7 @@ const nyaOptions: INyaOptions = {
 	discord: {
 		token: "",
 		clientId: "",
-		guildId: ""
+		guildId: "",
 	},
 	music: {
 		options: {
@@ -20,23 +20,23 @@ const nyaOptions: INyaOptions = {
 				beginningPointerEmote: "",
 				pointerEmote: "",
 				endingPointerEmote: "",
-				width: 10
-			}
+				width: 10,
+			},
 		},
 		lavalink: {
 			host: "0.0.0.0",
 			port: 2333,
-			password: "youshallnotpass"
+			password: "youshallnotpass",
 		},
 		spotify: {
 			id: "",
-			secret: ""
-		}
+			secret: "",
+		},
 	},
 	logColors: {
 		color: "",
-		errorColor: ""
-	}
+		errorColor: "",
+	},
 };
 
 export default nyaOptions;

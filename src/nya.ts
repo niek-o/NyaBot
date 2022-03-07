@@ -15,16 +15,16 @@ export class NyaClient extends Client {
 	private djsRest = new REST({ version: "9" });
 	private cmds: Array<any> = [];
 	private commandFolders: string[] = readdirSync(join(__dirname, "./commands"));
-	private eventFiles: string[] = readdirSync("src/events").filter(f => f.endsWith(".ts"));
-	private musicEventFiles: string[] = readdirSync("src/musicEvents").filter(f => f.endsWith(".ts"));
+	private eventFiles: string[] = readdirSync("src/events").filter((f) => f.endsWith(".ts"));
+	private musicEventFiles: string[] = readdirSync("src/musicEvents").filter((f) => f.endsWith(".ts"));
 
 	constructor(token: string, options: ClientOptions) {
 		super(options);
 		this.djsRest.setToken(token);
 
 		// Load commands
-		this.commandFolders.forEach(commandFolder => {
-			const commandFiles = readdirSync(`src/commands/${commandFolder}`).filter(f => f.endsWith(".ts"));
+		this.commandFolders.forEach((commandFolder) => {
+			const commandFiles = readdirSync(`src/commands/${commandFolder}`).filter((f) => f.endsWith(".ts"));
 			commandFiles.forEach(async (f) => {
 				const command: ICommand = (await import(`./commands/${commandFolder}/${f}`)).default;
 				this.commands.set(command.data.name, command);
@@ -48,22 +48,28 @@ export class NyaClient extends Client {
 		});
 
 		this.login(token).then(() => {
-			this.commands.forEach(cmd => {
+			this.commands.forEach((cmd) => {
 				this.cmds.push(cmd.data.toJSON());
 			});
 
-			this.djsRest.put(Routes.applicationGuildCommands(nyaOptions.discord.clientId, nyaOptions.discord.guildId), { body: this.cmds })
+			this.djsRest
+				.put(Routes.applicationGuildCommands(nyaOptions.discord.clientId, nyaOptions.discord.guildId), {
+					body: this.cmds,
+				})
 				.then(() => logger.log("Successfully registered application commands."))
 				.catch(logger.error);
 
-			this.djsRest.put(Routes.applicationCommands(nyaOptions.discord.clientId), { body: this.cmds })
+			this.djsRest
+				.put(Routes.applicationCommands(nyaOptions.discord.clientId), { body: this.cmds })
 				.then(() => logger.log("Successfully registered global commands."))
 				.catch(logger.error);
 		});
 	}
 }
 
-export const client = new NyaClient(nyaOptions.discord.token, { intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_VOICE_STATES] });
+export const client = new NyaClient(nyaOptions.discord.token, {
+	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_VOICE_STATES],
+});
 
 // Command handling
 client.on("interactionCreate", async (interaction) => {
@@ -79,29 +85,28 @@ client.on("interactionCreate", async (interaction) => {
 	}
 });
 
-
 // Initiate the Manager with some options and listen to some events.
 client.manager = new Manager({
 	// Pass an array of node. Note: You do not need to pass any if you are using the default values (ones shown below).
 	nodes: [
-		// If you pass a object like so the "host" property is required
+		// If you pass an object like so the "host" property is required
 		{
 			host: nyaOptions.music.lavalink.host, // Optional if Lavalink is local
 			port: nyaOptions.music.lavalink.port, // Optional if Lavalink is set to default
-			password: nyaOptions.music.lavalink.password // Optional if Lavalink is set to default
-		}
+			password: nyaOptions.music.lavalink.password, // Optional if Lavalink is set to default
+		},
 	],
 	plugins: [
 		// Initiate the plugin and pass the two required options.
 		new Spotify({
 			clientID: nyaOptions.music.spotify.id,
-			clientSecret: nyaOptions.music.spotify.secret
-		})
+			clientSecret: nyaOptions.music.spotify.secret,
+		}),
 	],
 	// A send method to send data to the Discord WebSocket using your library.
 	// Getting the shard for the guild and sending the data to the WebSocket.
 	send(id: string, payload: Payload) {
 		const guild = client.guilds.cache.get(id);
 		if (guild) guild.shard.send(payload);
-	}
+	},
 });

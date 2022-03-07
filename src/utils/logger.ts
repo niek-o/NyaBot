@@ -9,11 +9,14 @@ class Logger {
 	private errorEmoji: string = "❌";
 	private defaultColors: DefaultColors = {
 		color: Color.fromHex(color),
-		errorColor: Color.fromHex(errorColor)
+		errorColor: Color.fromHex(errorColor),
 	};
 
 	public date(): string {
-		return colorConsole.uniform(colorConsole.uniform(`[${new Date().toLocaleString()}]`, Color.WHITE, true), Color.BLACK);
+		return colorConsole.uniform(
+			colorConsole.uniform(`[${new Date().toLocaleString()}]`, Color.WHITE, true),
+			Color.BLACK
+		);
 	}
 
 	public log(log?: any) {
@@ -25,7 +28,9 @@ class Logger {
 	public error(error?: any) {
 		if (!error) return console.log();
 
-		console.error(`${this.date()} ${this.errorEmoji} ${colorConsole.uniform(error.toString(), this.defaultColors.errorColor)}`);
+		console.error(
+			`${this.date()} ${this.errorEmoji} ${colorConsole.uniform(error.toString(), this.defaultColors.errorColor)}`
+		);
 	}
 }
 

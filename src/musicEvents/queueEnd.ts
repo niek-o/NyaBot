@@ -8,7 +8,7 @@ import { timeout } from "../utils/logic";
 export = {
 	name: "queueEnd",
 	async execute(player: Player) {
-		const channel = client.channels.cache.find(channel => channel.id === player.textChannel);
+		const channel = client.channels.cache.find((channel) => channel.id === player.textChannel);
 
 		if (channel instanceof TextChannel) {
 			await channel.send("The queue has ended");
@@ -21,5 +21,5 @@ export = {
 		if (nyaOptions.music.options.leaveOnQueueEnd && !player.playing) {
 			player.destroy();
 		}
-	}
+	},
 };

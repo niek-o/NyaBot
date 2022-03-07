@@ -5,5 +5,5 @@ export = {
 	name: "raw",
 	async execute(d: VoicePacket) {
 		client.manager.updateVoiceState(d);
-	}
+	},
 };
