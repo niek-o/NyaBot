@@ -28,14 +28,12 @@ const nyaOptions: INyaOptions = {
 			port: 2333,
 			password: "youshallnotpass",
 		},
-		spotify: {
-			id: "",
-			secret: "",
-		},
 	},
-	logColors: {
+	logger: {
 		color: "",
 		errorColor: "",
+		emoji: "",
+		errorEmoji: "",
 	},
 };
 

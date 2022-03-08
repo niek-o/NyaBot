@@ -2,14 +2,14 @@
  * The options for the bot
  * @property {discordOptions} discord - The options for the discord setup
  * @property {musicOptions} music - The options for the music module
- * @property {loggerColors} logColors - The color options for the logger
+ * @property {loggerOptions} logger - The options for the logger
  *
  * @author Niek
  */
 export interface INyaOptions {
 	discord: discordOptions;
 	music: musicOptions;
-	logColors: loggerColors;
+	logger: loggerOptions;
 }
 
 /**
@@ -30,14 +30,12 @@ type discordOptions = {
  * The options for the music module
  * @property {playerOptions} options - TThe options for the music player
  * @property {lavalinkOptions} lavalink - The options for lavalink
- * @property {spotifyOptions} spotify - The options for spotify integration
  *
  * @author Niek
  */
 type musicOptions = {
 	options: playerOptions;
 	lavalink: lavalinkOptions;
-	spotify: spotifyOptions;
 };
 
 /**
@@ -97,25 +95,15 @@ type lavalinkOptions = {
 };
 
 /**
- * The options for spotify integration
- * @property {string} id - The spotify app id
- * @property {string} secret - The spotify app secret
- *
- * @author Niek
- */
-type spotifyOptions = {
-	id: string;
-	secret: string;
-};
-
-/**
- * The color options for the logger
+ * The options for the logger
  * @property {string} color - The default logging color in HEX format
  * @property {string} errorColor - The error logging color in HEX format
  *
  * @author Niek
  */
-type loggerColors = {
+type loggerOptions = {
 	color: string;
 	errorColor: string;
+	emoji: string;
+	errorEmoji: string;
 };

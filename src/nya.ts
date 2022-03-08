@@ -2,7 +2,6 @@ import { REST } from "@discordjs/rest";
 import { Routes } from "discord-api-types/v10";
 import { Client, ClientOptions, Intents } from "discord.js";
 import { Manager, Payload } from "erela.js";
-import Spotify from "erela.js-spotify";
 import { readdirSync } from "node:fs";
 import { join } from "path/posix";
 import nyaOptions from "./config";
@@ -95,13 +94,6 @@ client.manager = new Manager({
 			port: nyaOptions.music.lavalink.port, // Optional if Lavalink is set to default
 			password: nyaOptions.music.lavalink.password, // Optional if Lavalink is set to default
 		},
-	],
-	plugins: [
-		// Initiate the plugin and pass the two required options.
-		new Spotify({
-			clientID: nyaOptions.music.spotify.id,
-			clientSecret: nyaOptions.music.spotify.secret,
-		}),
 	],
 	// A send method to send data to the Discord WebSocket using your library.
 	// Getting the shard for the guild and sending the data to the WebSocket.

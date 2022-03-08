@@ -2,11 +2,9 @@ import { Color, colorConsole } from "colours.js/dst";
 import nyaOptions from "../config";
 import { DefaultColors } from "./Typings/Typings";
 
-const { color, errorColor } = nyaOptions.logColors;
+const { color, errorColor, emoji, errorEmoji } = nyaOptions.logger;
 
 class Logger {
-	private emoji: string = "🐱";
-	private errorEmoji: string = "❌";
 	private defaultColors: DefaultColors = {
 		color: Color.fromHex(color),
 		errorColor: Color.fromHex(errorColor),
@@ -22,14 +20,14 @@ class Logger {
 	public log(log?: any) {
 		if (!log) return console.log();
 
-		console.log(`${this.date()} ${this.emoji} ${colorConsole.uniform(log, this.defaultColors.color)}`);
+		console.log(`${this.date()} ${emoji} ${colorConsole.uniform(log, this.defaultColors.color)}`);
 	}
 
 	public error(error?: any) {
 		if (!error) return console.log();
 
 		console.error(
-			`${this.date()} ${this.errorEmoji} ${colorConsole.uniform(error.toString(), this.defaultColors.errorColor)}`
+			`${this.date()} ${errorEmoji} ${colorConsole.uniform(error.toString(), this.defaultColors.errorColor)}`
 		);
 	}
 }

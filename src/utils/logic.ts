@@ -1,6 +1,7 @@
-import { Player } from "erela.js";
+import { Player, Track } from "erela.js";
 import { promisify } from "node:util";
 import nyaOptions from "../config";
+import { Client as YouTube } from "youtubei";
 
 /**
  * A timeout generator
@@ -95,4 +96,16 @@ export function generateQueue(player: Player) {
 	}
 
 	return `\`\`\`yml\n${queueArray.toString().replace(/,/g, "")}\n\`\`\``;
+}
+
+/**
+ * Returns a thumbnail URL of the first result of the track's artist and title from YouTube
+ * @param track - The track that you want the thumbnail from
+ *
+ * @author Niek
+ */
+export async function getThumbnail(track: Track) {
+	const youtube = new YouTube();
+	const vid = await youtube.search(`${track.author} - ${track.title}`, { type: "video" });
+	return vid[0].thumbnails.best as string;
 }

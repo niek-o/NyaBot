@@ -1,7 +1,8 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { CommandInteraction, GuildMember, TextChannel } from "discord.js";
-import { generateNowPlayingData } from "../../utils/logic";
+import { generateNowPlayingData, getThumbnail } from "../../utils/logic";
 import { client } from "../../nya";
+import { Track } from "erela.js";
 
 export = {
 	data: new SlashCommandBuilder().setName("nowplaying").setDescription("Get the song that is currently playing."),
@@ -30,8 +31,7 @@ export = {
 		else
 			thumbnail = player.queue.current.displayThumbnail("maxresdefault")
 				? player.queue.current.displayThumbnail("maxresdefault")
-				: (thumbnail = "No thumbnail found");
-
+				: await getThumbnail(player.queue.current as Track);
 		return interaction.editReply(
 			`${player.queue.current.title}\n${generateNowPlayingData(
 				player.queue.current.duration,
