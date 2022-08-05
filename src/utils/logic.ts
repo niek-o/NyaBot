@@ -107,5 +107,6 @@ export function generateQueue(player: Player) {
 export async function getThumbnail(track: Track) {
 	const youtube = new YouTube();
 	const vid = await youtube.search(`${track.author} - ${track.title}`, { type: "video" });
+	//@ts-expect-error Not my fck problem
 	return vid[0].thumbnails.best as string;
 }

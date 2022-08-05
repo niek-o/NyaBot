@@ -1,11 +1,13 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
-import { CommandInteraction, GuildMember, TextChannel } from "discord.js";
+import { ISlashCommand } from "@infinite-fansub/discord-client/dist";
+import { SlashCommandBuilder, GuildMember, TextChannel } from "discord.js";
 import { client } from "../../nya";
 import { generateQueue } from "../../utils/logic";
 
-export = {
-	data: new SlashCommandBuilder().setName("queue").setDescription("Display the queue."),
-	async execute(interaction: CommandInteraction) {
+export default <ISlashCommand>{
+	data: new SlashCommandBuilder()
+		.setName("queue")
+		.setDescription("Display the queue."),
+	async execute(interaction) {
 		if (
 			!interaction.guild ||
 			!(interaction.member instanceof GuildMember) ||

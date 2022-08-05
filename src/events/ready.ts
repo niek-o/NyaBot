@@ -1,17 +1,19 @@
+import { Event } from "@infinite-fansub/discord-client/dist";
+import { ActivityType } from "discord.js";
 import { NyaClient } from "../nya";
 import { asciify } from "../utils/asciifier";
 import { logger } from "../utils/logger";
 
-export = {
-	name: "ready",
-	once: true,
-	async execute(client: NyaClient) {
+export default <Event<"ready">>{
+	event: "ready",
+	type: "once",
+	async run(client: NyaClient) {
 		if (!client.user) return;
-		await asciify(client.user.avatarURL({ format: "jpg", dynamic: true, size: 1024 })!, true)
+		await asciify(client.user.avatarURL({ extension: "jpg", size: 1024 })!, true)
 			.then((ascii) => console.log(ascii))
 			.catch((err) => console.log(err));
 
-		client.user.setActivity("Nekopara", { type: "WATCHING" });
+		client.user.setActivity({ name: "Nekopara", type: ActivityType.Watching });
 
 		client.manager.init(client.user.id);
 

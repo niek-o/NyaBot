@@ -1,16 +1,16 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
-import { CommandInteraction, GuildMember, TextChannel } from "discord.js";
+import { ISlashCommand } from "@infinite-fansub/discord-client/dist";
+import { GuildMember, TextChannel, SlashCommandBuilder } from "discord.js";
 import { SearchResult } from "erela.js";
-import nyaOptions from "../../config";
+import { music } from "../../config";
 import { client } from "../../nya";
 import { logger } from "../../utils/logger";
 
-export = {
+export default <ISlashCommand>{
 	data: new SlashCommandBuilder()
 		.setName("play")
 		.setDescription("Play a song.")
 		.addStringOption((option) => option.setName("query").setDescription("search query").setRequired(true)),
-	async execute(interaction: CommandInteraction) {
+	async execute(interaction) {
 		if (
 			!interaction.guild ||
 			!(interaction.member instanceof GuildMember) ||
@@ -27,8 +27,8 @@ export = {
 			guild: interaction.guild.id,
 			voiceChannel: interaction.member.voice.channel.id,
 			textChannel: interaction.channel.id,
-			volume: nyaOptions.music.options.volume,
-			selfDeafen: nyaOptions.music.options.deafenOnJoin,
+			volume: music.options.volume,
+			selfDeafen: music.options.deafenOnJoin,
 		});
 
 		if (interaction.member.voice.channel.id !== player.voiceChannel)

@@ -1,12 +1,14 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
-import { CommandInteraction, GuildMember, TextChannel } from "discord.js";
+import { CommandInteraction, GuildMember, TextChannel, SlashCommandBuilder } from "discord.js";
 import { generateNowPlayingData, getThumbnail } from "../../utils/logic";
 import { client } from "../../nya";
 import { Track } from "erela.js";
+import { ISlashCommand } from "@infinite-fansub/discord-client/dist";
 
-export = {
-	data: new SlashCommandBuilder().setName("nowplaying").setDescription("Get the song that is currently playing."),
-	async execute(interaction: CommandInteraction) {
+export default <ISlashCommand>{
+	data: new SlashCommandBuilder()
+		.setName("nowplaying")
+		.setDescription("Get the song that is currently playing."),
+	async execute(interaction) {
 		if (
 			!interaction.guild ||
 			!(interaction.member instanceof GuildMember) ||

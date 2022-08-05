@@ -1,9 +1,11 @@
-import { CommandInteraction, TextChannel } from "discord.js";
+import { Event } from "@infinite-fansub/discord-client/dist";
+import { TextChannel } from "discord.js";
 import { logger } from "../utils/logger";
 
-export = {
-	name: "interactionCreate",
-	async execute(interaction: CommandInteraction) {
+export default <Event<"interactionCreate">>{
+	event: "interactionCreate",
+	type: "on",
+	async run(interaction) {
 		if (
 			!interaction.isCommand ||
 			!interaction.channel ||
