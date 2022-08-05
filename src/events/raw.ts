@@ -2,11 +2,18 @@ import { Event, IClientEvents } from "@infinite-fansub/discord-client/dist";
 import { VoicePacket } from "erela.js";
 import { client } from "../nya";
 
-//@ts-expect-error `raw` exists but i cant be bothered to add it
-export default <Event<"raw">>{
+interface NyaEvents extends IClientEvents {
+	raw: [d: VoicePacket]
+}
+
+interface IEvent<E extends keyof NyaEvents> extends Omit<Event<any>, "event"> {
+	event: E
+}
+
+export default <IEvent<"raw">>{
 	event: "raw",
 	type: "on",
-	async run(d: VoicePacket) {
+	async run(d) {
 		client.manager.updateVoiceState(d);
 	},
 };
