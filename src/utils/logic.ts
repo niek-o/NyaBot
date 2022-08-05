@@ -107,6 +107,6 @@ export function generateQueue(player: Player) {
 export async function getThumbnail(track: Track) {
 	const youtube = new YouTube();
 	const vid = await youtube.search(`${track.author} - ${track.title}`, { type: "video" });
-	//@ts-expect-error Not my problem
+	//@ts-expect-error Type `SearchResult` is not iterable so typescript throws an error, the code shown is js abuse and not how it should be done.
 	return vid[0].thumbnails.best as string;
 }
