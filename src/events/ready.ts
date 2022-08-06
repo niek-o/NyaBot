@@ -10,8 +10,8 @@ export default <Event<"ready">>{
 	async run(client: NyaClient) {
 		if (!client.user) return;
 		await asciify(client.user.avatarURL({ extension: "jpg", size: 1024 })!, true)
-			.then((ascii) => console.log(ascii))
-			.catch((err) => console.log(err));
+			.then((ascii: any) => console.log(ascii))
+			.catch((err: any) => console.log(err));
 
 		client.user.setActivity({ name: "Nekopara", type: ActivityType.Watching });
 
