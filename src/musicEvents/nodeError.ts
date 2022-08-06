@@ -1,4 +1,4 @@
-import { globalLogger } from "@infinite-fansub/logger/dist";
+import { globalLogger } from "@infinite-fansub/logger";
 import { Node } from "erela.js";
 
 export = {

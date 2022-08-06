@@ -1,5 +1,5 @@
-import { Event } from "@infinite-fansub/discord-client/dist";
-import { globalLogger } from "@infinite-fansub/logger/dist";
+import { Event } from "@infinite-fansub/discord-client";
+import { globalLogger } from "@infinite-fansub/logger";
 import { ActivityType } from "discord.js";
 import { NyaClient } from "../nya";
 import { asciify } from "../utils/asciifier";

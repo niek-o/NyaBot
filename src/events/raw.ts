@@ -1,4 +1,4 @@
-import { Event, IClientEvents } from "@infinite-fansub/discord-client/dist";
+import { Event, IClientEvents } from "@infinite-fansub/discord-client";
 import { VoicePacket } from "erela.js";
 import { client } from "../nya";
 

@@ -24,5 +24,6 @@
     "start": "ts-node src/nya.ts",
     "build": "tsc",
     "build-test": "tsc -noEmit"
-  }
+  },
+  "packageManager": "yarn@3.2.2"
 }

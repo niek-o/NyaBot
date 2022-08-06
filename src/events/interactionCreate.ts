@@ -1,5 +1,5 @@
-import { Event } from "@infinite-fansub/discord-client/dist";
-import { globalLogger } from "@infinite-fansub/logger/dist";
+import { Event } from "@infinite-fansub/discord-client";
+import { globalLogger } from "@infinite-fansub/logger";
 import { TextChannel } from "discord.js";
 
 export default <Event<"interactionCreate">>{

@@ -1,4 +1,4 @@
-import { globalLogger } from "@infinite-fansub/logger/dist";
+import { globalLogger } from "@infinite-fansub/logger";
 import { TextChannel } from "discord.js";
 import { Player } from "erela.js";
 import nyaOptions from "../config";
