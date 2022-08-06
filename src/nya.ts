@@ -8,6 +8,7 @@ import { globalLogger } from "@infinite-fansub/logger/dist";
 import { Color } from "colours.js/dst";
 
 //#region Setup logger
+globalLogger.showMemory = false;
 globalLogger.showDay = true;
 
 globalLogger.emojis = {
