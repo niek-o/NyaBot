@@ -56,9 +56,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@infinite-fansub/discord-client@npm:^0.9.3":
-  version: 0.9.3
-  resolution: "@infinite-fansub/discord-client@npm:0.9.3"
+"@infinite-fansub/discord-client@npm:^0.9.5":
+  version: 0.9.5
+  resolution: "@infinite-fansub/discord-client@npm:0.9.5"
   dependencies:
     "@infinite-fansub/logger": "*"
     discord.js: ^14.1.2
@@ -66,7 +66,7 @@ __metadata:
     redis: ^4.0.6
     redis-om: ^0.3.3
     tslib: ^2.4.0
-  checksum: e6c8975aac4b748e8fe7fb59394faf2d5050094cb1bf283729aad5b9a455869accfe993ec27765a57e25333de32e742945372e27092c3753b215445fd1fe4c84
+  checksum: 73f1f908312da582ab854ca41b7fe337ce54a50262cf5b57e79aad5a192fba7ddb1a39ce3fc8661f07e1b28327c6e8fac76dac10300e0424702481a06707e3e2
   languageName: node
   linkType: hard
 
@@ -1081,7 +1081,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "nyabot@workspace:."
   dependencies:
-    "@infinite-fansub/discord-client": ^0.9.3
+    "@infinite-fansub/discord-client": ^0.9.5
     "@infinite-fansub/logger": ^1.6.2
     "@types/node": ^18.6.4
     colours.js: ^3.1.2
