@@ -1,5 +1,5 @@
 import { IClientOptions, InfiniteClient } from "@infinite-fansub/discord-client";
-import { GatewayIntentBits }              from "discord.js";
+import { GatewayIntentBits, ClientUser }  from "discord.js";
 import { Manager, Payload }               from "erela.js";
 import { readdirSync }                    from "node:fs";
 import { join }                           from "node:path";
@@ -24,6 +24,7 @@ globalLogger.colors = {
 //#endregion
 
 export class NyaClient extends InfiniteClient {
+	declare public user: ClientUser;
 	public manager: Manager;
 	private musicEventFiles: string[] = readdirSync("src/musicEvents")
 		.filter((f) => f.endsWith(".ts") || f.endsWith(".js"));

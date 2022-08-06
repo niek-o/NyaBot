@@ -1,6 +1,7 @@
 import { ISlashCommand }                                 from "@infinite-fansub/discord-client";
 import { GuildMember, TextChannel, SlashCommandBuilder } from "discord.js";
 import { client }                                        from "../../nya";
+import { getBaseEmbed, getBaseErrorEmbed }               from "../../utils/logic";
 
 export default <ISlashCommand>{
 	data: new SlashCommandBuilder()
@@ -16,16 +17,23 @@ export default <ISlashCommand>{
 		}
 		
 		const player = client.manager.get(interaction.guild.id);
-		if (!player) return interaction.reply("there is no player for this guild.");
-		
-		if (!interaction.member.voice.channel) return interaction.reply("you need to join a voice channel.");
-		if (interaction.member.voice.channel.id !== player.voiceChannel) {
-			return interaction.reply("you're not in the same voice channel.");
+		if (!player) {
+			return interaction.editReply({ embeds: [getBaseErrorEmbed("There is no player for this guild.")] });
 		}
 		
-		if (!player.queue.current) return interaction.reply("there is no music playing.");
+		if (!interaction.member.voice.channel) {
+			return interaction.editReply({ embeds: [getBaseErrorEmbed("You need to join a voice channel.")] });
+		}
+		
+		if (interaction.member.voice.channel.id !== player.voiceChannel) {
+			return interaction.editReply({ embeds: [getBaseErrorEmbed("You're not in the same voice channel.")] });
+		}
+		
+		if (!player.queue.current || !player.queue.current.duration) {
+			return interaction.editReply({ embeds: [getBaseErrorEmbed("There is no music playing.")] });
+		}
 		
 		player.queue.clear();
-		return interaction.reply("The queue has been cleared.");
+		return interaction.reply({ embeds: [getBaseEmbed(interaction, "Clear", "The queue has been cleared.")] });
 	},
 };

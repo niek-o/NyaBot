@@ -4,6 +4,7 @@ import { GuildMember, TextChannel, SlashCommandBuilder } from "discord.js";
 import { SearchResult }                                  from "erela.js";
 import nyaOptions                                        from "../../config";
 import { client }                                        from "../../nya";
+import { getBaseEmbed, getBaseErrorEmbed }               from "../../utils/logic";
 
 export default <ISlashCommand>{
 	data: new SlashCommandBuilder()
@@ -23,7 +24,9 @@ export default <ISlashCommand>{
 		
 		await interaction.deferReply();
 		
-		if (!interaction.member.voice.channel) return interaction.editReply("you need to join a voice channel.");
+		if (!interaction.member.voice.channel) {
+			return interaction.editReply({ embeds: [getBaseErrorEmbed("You need to join a voice channel.")] });
+		}
 		
 		// Create a new player. This will return the player if it already exists.
 		const player = client.manager.create({
@@ -35,10 +38,12 @@ export default <ISlashCommand>{
 		});
 		
 		if (interaction.member.voice.channel.id !== player.voiceChannel) {
-			return interaction.editReply("you're not in the same voice channel.");
+			return interaction.editReply({ embeds: [getBaseErrorEmbed("You're not in the same voice channel.")] });
 		}
 		
-		if (!player) return interaction.editReply("there is no player for this guild.");
+		if (!player) {
+			return interaction.editReply({ embeds: [getBaseErrorEmbed("There is no player for this guild.")] });
+		}
 		
 		if (player.state !== "CONNECTED") player.connect();
 		
@@ -60,18 +65,18 @@ export default <ISlashCommand>{
 		switch (res.loadType) {
 			case "NO_MATCHES":
 				if (!player.queue.current) player.destroy();
-				return interaction.editReply("There were no results found");
+				return interaction.editReply({ embeds: [getBaseErrorEmbed("There were no results found")] });
 			case "TRACK_LOADED":
 			case "SEARCH_RESULT":
 				player.queue.add(res.tracks[0]);
 				
 				if (!player.playing && !player.queue.size && !player.paused) await player.play();
-				return interaction.editReply(`Enqueuing ${ res.tracks[0].title }`);
+				return interaction.editReply({ embeds: [getBaseEmbed(interaction, "Enqueuing", `Enqueuing ${res.tracks[0].author} - ${ res.tracks[0].title }`)] });
 			case "PLAYLIST_LOADED":
 				player.queue.add(res.tracks);
 				
 				if (!player.playing && player.queue.totalSize === res.tracks.length && !player.paused) await player.play();
-				return interaction.editReply(`Enqueuing ${ res.playlist?.name } with ${ res.tracks.length } tracks.`);
+				return interaction.editReply({ embeds: [getBaseEmbed(interaction, "Enqueuing", `Enqueuing ${ res.playlist?.name } with ${ res.tracks.length } tracks.`)] });
 		}
 	},
 };

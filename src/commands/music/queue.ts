@@ -1,7 +1,8 @@
-import { ISlashCommand }                                 from "@infinite-fansub/discord-client";
-import { SlashCommandBuilder, GuildMember, TextChannel } from "discord.js";
-import { client }                                        from "../../nya";
-import { generateQueue }                                 from "../../utils/logic";
+import { ISlashCommand }                                                from "@infinite-fansub/discord-client";
+import { SlashCommandBuilder, GuildMember, TextChannel }                from "discord.js";
+import { client }                                                       from "../../nya";
+import { generateQueue, getBaseEmbed, getBaseErrorEmbed, getThumbnail } from "../../utils/logic";
+import { Track }                                                        from "erela.js";
 
 export default <ISlashCommand>{
 	data: new SlashCommandBuilder()
@@ -19,10 +20,21 @@ export default <ISlashCommand>{
 		await interaction.deferReply();
 		
 		const player = client.manager.get(interaction.guild.id);
-		if (!player) return interaction.reply("there is no player for this guild.");
+		if (!player) {
+			return interaction.editReply({ embeds: [getBaseErrorEmbed("There is no player for this guild.")] });
+		}
 		
-		if (!player.queue.current) return interaction.editReply("there is no music playing.");
+		if (!player.queue.current || !player.queue.current.duration) {
+			return interaction.editReply({ embeds: [getBaseErrorEmbed("There is no music playing.")] });
+		}
 		
-		return interaction.editReply(generateQueue(player));
+		const embed = getBaseEmbed(interaction, "Queue")
+			.addFields(
+				{ name: "Now playing", value: `${ player.queue.current.author } - ${ player.queue.current.title }` },
+				{ name: "Queue", value: generateQueue(player) }
+			)
+			.setImage(await getThumbnail(player.queue.current as Track));
+		
+		return interaction.editReply({ embeds: [embed] });
 	},
 };

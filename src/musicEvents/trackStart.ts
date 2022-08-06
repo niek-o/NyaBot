@@ -1,16 +1,20 @@
-import { globalLogger } from "@infinite-fansub/logger";
-import { TextChannel } from "discord.js";
-import { Player, Track } from "erela.js";
-import { client } from "../nya";
+import { globalLogger }               from "@infinite-fansub/logger";
+import { TextChannel }                from "discord.js";
+import { Player, Track }              from "erela.js";
+import { client }                     from "../nya";
+import { getBaseEmbed, getThumbnail } from "../utils/logic";
 
 export = {
 	name: "trackStart",
 	async execute(player: Player, track: Track) {
 		const channel = client.channels.cache.find((channel) => channel.id === player.textChannel);
-
+		
 		if (channel instanceof TextChannel) {
-			await channel.send(`NOW PLAYING: ${track.title}`);
+			const embed = getBaseEmbed(channel, "Now playing", `${ track.author } - ${ track.title }`)
+				.setImage(await getThumbnail(track));
+			
+			await channel.send({ embeds: [embed] });
 		}
-		globalLogger.defaultPrint(`${client.guilds.cache.get(player.guild)?.name}: Playing ${track.title}`);
+		globalLogger.defaultPrint(`${ client.guilds.cache.get(player.guild)?.name }: Playing ${ track.title }`);
 	},
 };

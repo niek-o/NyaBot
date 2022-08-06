@@ -56,25 +56,36 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@infinite-fansub/discord-client@npm:^0.9.2":
-  version: 0.9.2
-  resolution: "@infinite-fansub/discord-client@npm:0.9.2"
+"@infinite-fansub/discord-client@npm:^0.9.3":
+  version: 0.9.3
+  resolution: "@infinite-fansub/discord-client@npm:0.9.3"
   dependencies:
     "@infinite-fansub/logger": "*"
     discord.js: ^14.1.2
     mongoose: ^6.3.1
     redis: ^4.0.6
     redis-om: ^0.3.3
-  checksum: 712fb72f8560d82d6665275b55a4aaf729e8ab82741163c158b02802d2eec7fb13a5a62a2da9fdc43dbd5fa861c9e9903aa2eaf23452261e8786cff238ce0d61
+    tslib: ^2.4.0
+  checksum: e6c8975aac4b748e8fe7fb59394faf2d5050094cb1bf283729aad5b9a455869accfe993ec27765a57e25333de32e742945372e27092c3753b215445fd1fe4c84
   languageName: node
   linkType: hard
 
-"@infinite-fansub/logger@npm:*, @infinite-fansub/logger@npm:^1.6.1":
+"@infinite-fansub/logger@npm:*":
   version: 1.6.1
   resolution: "@infinite-fansub/logger@npm:1.6.1"
   dependencies:
     colours.js: ^3.1.2
   checksum: 9ddc5a85dcc2d2355742a3ba00e2d219516f5c58cfb024bb91e7c867c81b7be28ba6fda4651cde716ee13ed0f269c77e72db8eda210fe852453d2df30479b610
+  languageName: node
+  linkType: hard
+
+"@infinite-fansub/logger@npm:^1.6.2":
+  version: 1.6.2
+  resolution: "@infinite-fansub/logger@npm:1.6.2"
+  dependencies:
+    colours.js: ^3.1.2
+    tslib: ^2.4.0
+  checksum: 65ed700f8b81d40e80f5196e01a5a2de9fcaa6ba4123254cc44cbeeb4796f4c0694dfafdfa05ccd625680633834a9d99970473315a754f334fd4c2d68d125746
   languageName: node
   linkType: hard
 
@@ -1070,14 +1081,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "nyabot@workspace:."
   dependencies:
-    "@infinite-fansub/discord-client": ^0.9.2
-    "@infinite-fansub/logger": ^1.6.1
+    "@infinite-fansub/discord-client": ^0.9.3
+    "@infinite-fansub/logger": ^1.6.2
     "@types/node": ^18.6.4
     colours.js: ^3.1.2
     discord.js: ^14.1.2
     erela.js: ^2.3.3
     jimp: ^0.16.1
-    prettier: ^2.5.1
     typescript: ^4.7.4
     youtubei: ^1.0.0-rc.3
   languageName: unknown
@@ -1164,15 +1174,6 @@ __metadata:
   version: 3.4.0
   resolution: "pngjs@npm:3.4.0"
   checksum: 8bd40bd698abd16b72c97b85cb858c80894fbedc76277ce72a784aa441e14795d45d9856e97333ca469b34b67528860ffc8a7317ca6beea349b645366df00bcd
-  languageName: node
-  linkType: hard
-
-"prettier@npm:^2.5.1":
-  version: 2.7.1
-  resolution: "prettier@npm:2.7.1"
-  bin:
-    prettier: bin-prettier.js
-  checksum: 55a4409182260866ab31284d929b3cb961e5fdb91fe0d2e099dac92eaecec890f36e524b4c19e6ceae839c99c6d7195817579cdffc8e2c80da0cb794463a748b
   languageName: node
   linkType: hard
 
