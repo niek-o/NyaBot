@@ -1,9 +1,11 @@
-import { CommandInteraction, TextChannel } from "discord.js";
-import { logger } from "../utils/logger";
+import { Event } from "@infinite-fansub/discord-client";
+import { globalLogger } from "@infinite-fansub/logger";
+import { TextChannel } from "discord.js";
 
-export = {
-	name: "interactionCreate",
-	async execute(interaction: CommandInteraction) {
+export default <Event<"interactionCreate">>{
+	event: "interactionCreate",
+	type: "on",
+	async run(interaction) {
 		if (
 			!interaction.isCommand ||
 			!interaction.channel ||
@@ -12,7 +14,7 @@ export = {
 		)
 			return;
 
-		logger.log(
+		globalLogger.defaultPrint(
 			`${interaction.guild.name}: ${interaction.user.tag} in ${interaction.channel.name} triggered ${interaction}`
 		);
 	},

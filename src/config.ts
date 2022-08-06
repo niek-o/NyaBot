@@ -1,40 +1,38 @@
 import { INyaOptions } from "./utils/Typings/ConfigTypes";
 
-const nyaOptions: INyaOptions = {
+export default <INyaOptions>{
 	discord: {
-		token: "",
+		token:    "",
 		clientId: "",
-		guildId: "",
+		guildId:  "",
 	},
-	music: {
-		options: {
+	music:   {
+		options:  {
 			leaveOnQueueEnd: true,
-			timeOut: 10000,
-			volume: 50,
-			deafenOnJoin: true,
-			progressBar: {
-				fullBeginningEmote: "",
-				fullMidEmote: "",
-				emptyMidEmote: "",
-				emptyEndingEmote: "",
+			timeOut:         10000,
+			volume:          50,
+			deafenOnJoin:    true,
+			progressBar:     {
+				fullBeginningEmote:    "",
+				fullMidEmote:          "",
+				emptyMidEmote:         "",
+				emptyEndingEmote:      "",
 				beginningPointerEmote: "",
-				pointerEmote: "",
-				endingPointerEmote: "",
-				width: 10,
+				pointerEmote:          "",
+				endingPointerEmote:    "",
+				width:                 10,
 			},
 		},
 		lavalink: {
-			host: "0.0.0.0",
-			port: 2333,
+			host:     "0.0.0.0",
+			port:     2333,
 			password: "youshallnotpass",
 		},
 	},
-	logger: {
-		color: "",
+	logger:  {
+		color:      "",
 		errorColor: "",
-		emoji: "",
+		emoji:      "",
 		errorEmoji: "",
 	},
 };
-
-export default nyaOptions;

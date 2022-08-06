@@ -1,10 +1,12 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
-import { CommandInteraction } from "discord.js";
-import { client } from "../../nya";
+import { ISlashCommand }       from "@infinite-fansub/discord-client";
+import { SlashCommandBuilder } from "discord.js";
+import { client }              from "../../nya";
 
-export = {
-	data: new SlashCommandBuilder().setName("ping").setDescription("Replies with Pong!"),
-	async execute(interaction: CommandInteraction) {
-		await interaction.reply(`Websocket heartbeat: ${client.ws.ping}ms.`);
+export default <ISlashCommand>{
+	data: new SlashCommandBuilder()
+			  .setName("ping")
+			  .setDescription("Replies with Pong!"),
+	async execute(interaction) {
+		await interaction.reply(`Websocket heartbeat: ${ client.ws.ping }ms.`);
 	},
 };
