@@ -3,7 +3,23 @@ import { GatewayIntentBits } from "discord.js";
 import { Manager, Payload } from "erela.js";
 import { readdirSync } from "node:fs";
 import { join } from "node:path";
-import { music, token } from "./config";
+import nyaOptions from "./config";
+import { globalLogger } from "@infinite-fansub/logger/dist";
+import { Color } from "colours.js/dst";
+
+//#region Setup logger
+globalLogger.showDay = true;
+
+globalLogger.emojis = {
+	emoji: nyaOptions.logger.emoji,
+	errorEmoji: nyaOptions.logger.errorEmoji
+};
+
+globalLogger.colors = {
+	color: Color.fromHex(nyaOptions.logger.color),
+	errorColor: Color.fromHex(nyaOptions.logger.errorColor)
+};
+//#endregion
 
 export class NyaClient extends InfiniteClient {
 	public manager: Manager;
@@ -29,15 +45,15 @@ export const client = new NyaClient({
 		events: join(__dirname, "./events"),
 		slashCommands: join(__dirname, "./commands")
 	},
-	token
+	token: nyaOptions.discord.token
 }, new Manager({
 	// Pass an array of node. Note: You do not need to pass any if you are using the default values (ones shown below).
 	nodes: [
 		// If you pass an object like so the "host" property is required
 		{
-			host: music.lavalink.host, // Optional if Lavalink is local
-			port: music.lavalink.port, // Optional if Lavalink is set to default
-			password: music.lavalink.password, // Optional if Lavalink is set to default
+			host: nyaOptions.music.lavalink.host, // Optional if Lavalink is local
+			port: nyaOptions.music.lavalink.port, // Optional if Lavalink is set to default
+			password: nyaOptions.music.lavalink.password, // Optional if Lavalink is set to default
 		},
 	],
 	// A send method to send data to the Discord WebSocket using your library.

@@ -1,7 +1,7 @@
+import { globalLogger } from "@infinite-fansub/logger/dist";
 import { TextChannel } from "discord.js";
 import { Player, Track } from "erela.js";
 import { client } from "../nya";
-import { logger } from "../utils/logger";
 
 export = {
 	name: "trackStart",
@@ -11,6 +11,6 @@ export = {
 		if (channel instanceof TextChannel) {
 			await channel.send(`NOW PLAYING: ${track.title}`);
 		}
-		logger.log(`${client.guilds.cache.get(player.guild)?.name}: Playing ${track.title}`);
+		globalLogger.defaultPrint(`${client.guilds.cache.get(player.guild)?.name}: Playing ${track.title}`);
 	},
 };

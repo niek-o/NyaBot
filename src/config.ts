@@ -1,6 +1,6 @@
 import { INyaOptions } from "./utils/Typings/ConfigTypes";
 
-const nyaOptions: INyaOptions = {
+export default <INyaOptions>{
 	discord: {
 		token: "",
 		clientId: "",
@@ -36,5 +36,3 @@ const nyaOptions: INyaOptions = {
 		errorEmoji: "",
 	},
 };
-
-export default nyaOptions;

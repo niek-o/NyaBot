@@ -1,8 +1,8 @@
 import { Event } from "@infinite-fansub/discord-client/dist";
+import { globalLogger } from "@infinite-fansub/logger/dist";
 import { ActivityType } from "discord.js";
 import { NyaClient } from "../nya";
 import { asciify } from "../utils/asciifier";
-import { logger } from "../utils/logger";
 
 export default <Event<"ready">>{
 	event: "ready",
@@ -17,9 +17,8 @@ export default <Event<"ready">>{
 
 		client.manager.init(client.user.id);
 
-		logger.log(`Nya! :3`);
-		logger.log(`Logged in as ${client.user.tag}`);
-		logger.log(`Currently serving ${client.guilds.cache.size} servers`);
-		logger.log();
+		globalLogger.defaultPrint(`Nya! :3`);
+		globalLogger.defaultPrint(`Logged in as ${client.user.tag}`);
+		globalLogger.defaultPrint(`Currently serving ${client.guilds.cache.size} servers\n`);
 	},
 };

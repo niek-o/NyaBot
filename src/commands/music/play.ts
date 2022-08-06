@@ -1,9 +1,9 @@
 import { ISlashCommand } from "@infinite-fansub/discord-client/dist";
+import { globalLogger } from "@infinite-fansub/logger/dist";
 import { GuildMember, TextChannel, SlashCommandBuilder } from "discord.js";
 import { SearchResult } from "erela.js";
-import { music } from "../../config";
+import nyaOptions from "../../config";
 import { client } from "../../nya";
-import { logger } from "../../utils/logger";
 
 export default <ISlashCommand>{
 	data: new SlashCommandBuilder()
@@ -27,8 +27,8 @@ export default <ISlashCommand>{
 			guild: interaction.guild.id,
 			voiceChannel: interaction.member.voice.channel.id,
 			textChannel: interaction.channel.id,
-			volume: music.options.volume,
-			selfDeafen: music.options.deafenOnJoin,
+			volume: nyaOptions.music.options.volume,
+			selfDeafen: nyaOptions.music.options.deafenOnJoin,
 		});
 
 		if (interaction.member.voice.channel.id !== player.voiceChannel)
@@ -42,7 +42,7 @@ export default <ISlashCommand>{
 
 		const req = async (i: string) =>
 			await client.manager.search(i, interaction.user).catch((error) => {
-				logger.error(error);
+				globalLogger.error(error);
 			});
 
 		const res = (await req(query)) as SearchResult;
