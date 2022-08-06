@@ -38,7 +38,14 @@ export default <ISlashCommand>{
 		
 		const embed = getBaseEmbed(interaction, "Now playing")
 			.addFields(
-				{ name: "Song Title", value: player.queue.current.title },
+				{
+					name:   "Author",
+					value:  player.queue.current.author
+							? player.queue.current.author
+							: "",
+					inline: true
+				},
+				{ name: "Track", value: player.queue.current.title, inline: true },
 				{
 					name: "Progress", value: generateNowPlayingData(
 						player.queue.current.duration,
