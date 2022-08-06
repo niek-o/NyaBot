@@ -1,5 +1,5 @@
 .idea
-.yarn
+.yarn/*
 !.yarn/cache
 !.yarn/patches
 !.yarn/plugins
