@@ -36,6 +36,6 @@ export default <ISlashCommand>{
 		}
 		
 		player.queue.shuffle();
-		return interaction.reply({ embeds: [getBaseEmbed(interaction, "Shuffle", "The queue has been shuffled.")] });
+		return interaction.editReply({ embeds: [getBaseEmbed(interaction, "Shuffle", "The queue has been shuffled.")] });
 	},
 };

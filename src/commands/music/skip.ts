@@ -18,19 +18,19 @@ export default <ISlashCommand>{
 		
 		const player = client.manager.get(interaction.guild.id);
 		if (!player) {
-			return interaction.editReply({ embeds: [getBaseErrorEmbed("There is no player for this guild.")] });
+			return interaction.reply({ embeds: [getBaseErrorEmbed("There is no player for this guild.")] });
 		}
 		
 		if (!interaction.member.voice.channel) {
-			return interaction.editReply({ embeds: [getBaseErrorEmbed("You need to join a voice channel.")] });
+			return interaction.reply({ embeds: [getBaseErrorEmbed("You need to join a voice channel.")] });
 		}
 		
 		if (interaction.member.voice.channel.id !== player.voiceChannel) {
-			return interaction.editReply({ embeds: [getBaseErrorEmbed("You're not in the same voice channel.")] });
+			return interaction.reply({ embeds: [getBaseErrorEmbed("You're not in the same voice channel.")] });
 		}
 		
 		if (!player.queue.current || !player.queue.current.duration) {
-			return interaction.editReply({ embeds: [getBaseErrorEmbed("There is no music playing.")] });
+			return interaction.reply({ embeds: [getBaseErrorEmbed("There is no music playing.")] });
 		}
 		
 		player.stop();
