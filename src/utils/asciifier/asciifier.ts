@@ -64,7 +64,7 @@ export const asciify = (path: string, color?: boolean) => {
 		
 				   return asciiChar;
 			   })
-			   .catch((error: Error) => console.log(error));
+			   .catch((error: string) => logger.print(error));
 };
 
 /**

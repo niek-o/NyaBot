@@ -1,5 +1,4 @@
 import { ISlashCommand }                                 from "@infinite-fansub/discord-client";
-import { globalLogger }                                  from "@infinite-fansub/logger";
 import { GuildMember, TextChannel, SlashCommandBuilder } from "discord.js";
 import { SearchResult }                                  from "erela.js";
 import nyaOptions                                        from "../../config";
@@ -52,7 +51,7 @@ export default <ISlashCommand>{
 		const req = async (i: string) =>
 			await client.manager.search(i, interaction.user)
 						.catch((error) => {
-							globalLogger.error(error);
+							logger.error(error);
 						});
 		
 		const res = (await req(query)) as SearchResult;

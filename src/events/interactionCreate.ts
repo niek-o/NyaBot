@@ -1,5 +1,4 @@
 import { Event }        from "@infinite-fansub/discord-client";
-import { globalLogger } from "@infinite-fansub/logger";
 import { TextChannel }  from "discord.js";
 
 export default <Event<"interactionCreate">>{
@@ -15,7 +14,7 @@ export default <Event<"interactionCreate">>{
 			return;
 		}
 		
-		globalLogger.defaultPrint(
+		logger.log(
 			`${ interaction.guild.name }: ${ interaction.user.tag } in ${ interaction.channel.name } triggered ${ interaction }`
 		);
 	},

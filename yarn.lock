@@ -79,13 +79,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@infinite-fansub/logger@npm:^1.6.2":
-  version: 1.6.2
-  resolution: "@infinite-fansub/logger@npm:1.6.2"
+"@infinite-fansub/logger@npm:^1.8.0":
+  version: 1.8.0
+  resolution: "@infinite-fansub/logger@npm:1.8.0"
   dependencies:
     colours.js: ^3.1.2
     tslib: ^2.4.0
-  checksum: 65ed700f8b81d40e80f5196e01a5a2de9fcaa6ba4123254cc44cbeeb4796f4c0694dfafdfa05ccd625680633834a9d99970473315a754f334fd4c2d68d125746
+  checksum: 85aec1621b2c85f6c40312fd139e83666f705f4cf18e626c9104c304d1997a317c45072ab977c3f2ed27a788e3b8ac2b7ee75b7c2705a0a32e6fde0d88949bf7
   languageName: node
   linkType: hard
 
@@ -1082,7 +1082,7 @@ __metadata:
   resolution: "nyabot@workspace:."
   dependencies:
     "@infinite-fansub/discord-client": ^0.9.5
-    "@infinite-fansub/logger": ^1.6.2
+    "@infinite-fansub/logger": ^1.8.0
     "@types/node": ^18.6.4
     colours.js: ^3.1.2
     discord.js: ^14.1.2

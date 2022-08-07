@@ -4,19 +4,19 @@ import { Manager, Payload }               from "erela.js";
 import { readdirSync }                    from "node:fs";
 import { join }                           from "node:path";
 import nyaOptions                         from "./config";
-import { globalLogger }                   from "@infinite-fansub/logger";
 import { Color }                          from "colours.js/dst";
+require("@infinite-fansub/logger")
 
 //#region Setup logger
-globalLogger.showMemory = false;
-globalLogger.showDay    = true;
+logger.showMemory = false;
+logger.showDay    = true;
 
-globalLogger.emojis = {
+logger.emojis = {
 	emoji:      nyaOptions.logger.emoji,
 	errorEmoji: nyaOptions.logger.errorEmoji
 };
 
-globalLogger.colors = {
+logger.colors = {
 	color:      Color.fromHex(nyaOptions.logger.color),
 	errorColor: Color.fromHex(nyaOptions.logger.errorColor)
 };

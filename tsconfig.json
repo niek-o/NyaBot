@@ -9,6 +9,9 @@
     "outDir": "build",
     "declaration": false,
     "module": "commonjs",
-    "forceConsistentCasingInFileNames": false
+    "forceConsistentCasingInFileNames": false,
+    "types": [
+      "@infinite-fansub/logger/globals"
+    ]
   }
 }

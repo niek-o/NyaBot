@@ -1,4 +1,3 @@
-import { globalLogger }          from "@infinite-fansub/logger";
 import { TextChannel }           from "discord.js";
 import { Player }                from "erela.js";
 import nyaOptions                from "../config";
@@ -14,7 +13,7 @@ export = {
 			await channel.send({ embeds: [getBaseEmbed(channel, "Queue ended", "The queue has ended.")] });
 		}
 		
-		globalLogger.defaultPrint(`${ client.guilds.cache.get(player.guild)?.name }: Queue has ended`);
+		logger.log(`${ client.guilds.cache.get(player.guild)?.name }: Queue has ended`);
 		
 		await timeout(nyaOptions.music.options.timeOut);
 		

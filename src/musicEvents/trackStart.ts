@@ -1,4 +1,3 @@
-import { globalLogger }               from "@infinite-fansub/logger";
 import { TextChannel }                from "discord.js";
 import { Player, Track }              from "erela.js";
 import { client }                     from "../nya";
@@ -15,6 +14,6 @@ export = {
 			
 			await channel.send({ embeds: [embed] });
 		}
-		globalLogger.defaultPrint(`${ client.guilds.cache.get(player.guild)?.name }: Playing ${ track.title }`);
+		logger.log(`${ client.guilds.cache.get(player.guild)?.name }: Playing ${ track.title }`);
 	},
 };

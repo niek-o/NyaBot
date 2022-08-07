@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@infinite-fansub/discord-client": "^0.9.5",
-    "@infinite-fansub/logger": "^1.6.2",
+    "@infinite-fansub/logger": "^1.8.0",
     "colours.js": "^3.1.2",
     "discord.js": "^14.1.2",
     "erela.js": "^2.3.3",
