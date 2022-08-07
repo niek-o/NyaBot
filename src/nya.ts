@@ -26,7 +26,7 @@ globalLogger.colors = {
 export class NyaClient extends InfiniteClient {
 	declare public user: ClientUser;
 	public manager: Manager;
-	private musicEventFiles: string[] = readdirSync("src/musicEvents")
+	private musicEventFiles: string[] = readdirSync(join(__dirname, "./musicEvents"))
 		.filter((f) => f.endsWith(".ts") || f.endsWith(".js"));
 	
 	constructor(options: IClientOptions, manager: Manager) {
