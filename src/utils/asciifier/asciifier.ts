@@ -9,10 +9,13 @@ const chars = " .,:;i1tfLCG08@";
 const num_c = chars.length - 1;
 
 /**
- * Returns the color for the picture
- * @param image
- * @param x
- * @param y
+ * Color the character
+ *
+ * @param image - The image
+ * @param x - The X coordinate
+ * @param y - The Y coordinate
+ *
+ * @returns The color for the character in RGB
  */
 function intensity(image: Jimp, x: number, y: number) {
 	const color = Jimp.intToRGBA(image.getPixelColor(x, y));
@@ -20,8 +23,12 @@ function intensity(image: Jimp, x: number, y: number) {
 }
 
 /**
+ * Turn character into ascii art character
+ *
  * @param path - File path
  * @param color - Show color
+ *
+ * @returns The ascii art character
  */
 export const asciify = (path: string, color?: boolean) => {
 	// First open image to get initial properties
@@ -68,12 +75,15 @@ export const asciify = (path: string, color?: boolean) => {
 };
 
 /**
- * Returns a row of the ascii art
- * @param ascii
- * @param image
- * @param coords
- * @param norm
- * @param colorToggle
+ * Generate a row of the ascii art
+ *
+ * @param ascii - The character of the pixel
+ * @param image - The image
+ * @param coords - The coordinate of the pixel
+ * @param norm - The norm
+ * @param colorToggle - Enable grayscale mode
+ *
+ * @returns A row of the ascii art
  */
 function convertPixelsToString(ascii: string, image: Jimp, coords: number[], norm: number, colorToggle?: boolean): string {
 	const [i, j] = coords;
@@ -93,10 +103,13 @@ function convertPixelsToString(ascii: string, image: Jimp, coords: number[], nor
 }
 
 /**
- * Returns the HEX color of the RGB input
- * @param red
- * @param green
- * @param blue
+ * Convert RGB color to HEX color
+ *
+ * @param red - Red (0-255)
+ * @param green - Green (0-255)
+ * @param blue - Blue (0-255)
+ *
+ * @returns The HEX color of the RGB input
  */
 function rgb2hex(red: number, green: number, blue: number) {
 	return (

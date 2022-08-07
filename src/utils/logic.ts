@@ -6,16 +6,19 @@ import { client }                                              from "../nya";
 import { EmbedBuilder, GuildMember, Interaction, TextChannel } from "discord.js";
 
 /**
- * A timeout generator
+ * A timeout generator (in ms)
  *
  * @author Niek
  */
 export const timeout = promisify(setTimeout);
 
 /**
- * Returns the progress bar and the formatted timestamp
+ * Generate the now playing data
+ *
  * @param songDuration - The duration of the song in ms
  * @param currentTimestamp - The current progress of the song in ms
+ *
+ * @returns The progress bar and the formatted timestamp
  *
  * @author Niek
  */
@@ -31,8 +34,11 @@ export function generateNowPlayingData(songDuration: number, currentTimestamp: n
 }
 
 /**
- * Returns the time in the ``hh:mm:ss`` format
+ * Convert ms to time
+ *
  * @param ms - The time in milliseconds
+ *
+ * @returns The time in the ``hh:mm:ss`` format
  *
  * @author Niek
  */
@@ -45,9 +51,12 @@ function msToTime(ms: number) {
 }
 
 /**
- * Returns the progress bar with the emotes from the configuration file
+ * Generate the progress bar
+ *
  * @param songDuration - The duration of the song in ms
  * @param currentTimestamp - The current progress of the song in ms
+ *
+ * @returns The progress bar with the emotes from the configuration file
  *
  * @author Niek
  */
@@ -88,12 +97,14 @@ function generateProgressBar(songDuration: number, currentTimestamp: number) {
 }
 
 /**
- * Returns the formatted queue
+ * Generate the queue
+ *
  * @param player - The music player of the guild
+ *
+ * @returns The formatted queue
  *
  * @author Niek
  */
-
 export function generateQueue(player: Player) {
 	const queueArray: string[] = [];
 	
@@ -114,8 +125,11 @@ export function generateQueue(player: Player) {
 }
 
 /**
- * Returns the thumbnail URL of the track
+ * Get thumbnail
+ *
  * @param track - The track that you want the thumbnail from
+ *
+ * @returns The thumbnail URL of the track
  *
  * @author Niek
  */
@@ -129,10 +143,13 @@ export async function getThumbnail(track: Track) {
 }
 
 /**
- * Returns the base embed
+ * Get the base embed
+ *
  * @param interaction - The Interaction or TextChannel
  * @param title - Embed title
  * @param description - Embed description
+ *
+ * @returns The base embed
  *
  * @author Niek
  */
@@ -150,8 +167,11 @@ export function getBaseEmbed(interaction: Interaction | TextChannel, title?: str
 }
 
 /**
- * Returns the base embed for errors
+ * Get the base embed for errors
+ *
  * @param error - The error message you want to display
+ *
+ * @returns The base embed for errors
  *
  * @author Niek
  */

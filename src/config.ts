@@ -1,12 +1,8 @@
 import { INyaOptions } from "./utils/Typings/ConfigTypes";
 
-export default <INyaOptions>{
-	discord: {
-		token:    "",
-		clientId: "",
-		guildId:  "",
-	},
-	music:   {
+const nyaOptions: INyaOptions = {
+	token:  "",
+	music:  {
 		options:  {
 			leaveOnQueueEnd: true,
 			timeOut:         10000,
@@ -29,10 +25,12 @@ export default <INyaOptions>{
 			password: "youshallnotpass",
 		},
 	},
-	logger:  {
+	logger: {
 		color:      "",
 		errorColor: "",
 		emoji:      "",
 		errorEmoji: "",
 	},
 };
+
+export default nyaOptions;

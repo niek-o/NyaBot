@@ -1,109 +1,68 @@
 /**
- * The options for the bot
- * @property {discordOptions} discord - The options for the discord setup
- * @property {musicOptions} music - The options for the music module
- * @property {loggerOptions} logger - The options for the logger
+ * The global configuration for the bot.
  *
- * @author Niek
+ * See [src/config.ts](https://github.com/niek-o/NyaBot/blob/main/src/config.ts) for a template.
  */
+
 export interface INyaOptions {
-	discord: discordOptions;
+	token: string;
 	music: musicOptions;
 	logger: loggerOptions;
 }
 
-/**
- * The options for the discord setup
- * @property {string} token - The discord bot token
- * @property {string} clientId - The discord bot client id
- * @property {string} guildId - The bot testing server
- *
- * @author Niek
- */
-type discordOptions = {
-	token: string;
-	clientId: string;
-	guildId: string;
-};
-
-/**
- * The options for the music module
- * @property {playerOptions} options - TThe options for the music player
- * @property {lavalinkOptions} lavalink - The options for lavalink
- *
- * @author Niek
- */
 type musicOptions = {
 	options: playerOptions;
 	lavalink: lavalinkOptions;
 };
 
-/**
- * The options for the music player
- * @property {boolean} leaveOnQueueEnd - Leave the voice channel when the queue ends
- * @property {number} timeOut - The leave timeout in ms
- * @property {number} volume - The volume of the player
- * @property {boolean} deafenOnJoin - Deafen the bot on join
- * @property {progressBarOptions} progressBar - The options for the progress bar
- *
- * @author Niek
- */
 type playerOptions = {
+	/** Leave the voice channel when the queue ends */
 	leaveOnQueueEnd: boolean;
+	/** The leave timeout in ms */
 	timeOut: number;
+	/** The volume of the player */
 	volume: number;
+	/** Deafen the bot on join */
 	deafenOnJoin: boolean;
+	/** The options for the progress bar */
 	progressBar: progressBarOptions;
 };
 
-/**
- * The options for the progress bar
- * @property {string} fullBeginningEmote - The first emote (full)
- * @property {string} fullMidEmote - The middle emote (full)
- * @property {string} emptyMidEmote - The middle emote (empty)
- * @property {string} emptyEndingEmote - The last emote (empty)
- * @property {string} beginningPointerEmote - The first emote (ball)
- * @property {string} pointerEmote - The middle emote (ball)
- * @property {string} endingPointerEmote - The last emote (ball)
- * @property {number} width - The width of the progress bar
- *
- * @author Niek
- */
 type progressBarOptions = {
+	/** The first emote (full) */
 	fullBeginningEmote: string;
+	/** The middle emote (full) */
 	fullMidEmote: string;
+	/** The middle emote (empty) */
 	emptyMidEmote: string;
+	/** The last emote (empty) */
 	emptyEndingEmote: string;
+	/** The first emote (ball) */
 	beginningPointerEmote: string;
+	/** The middle emote (ball) */
 	pointerEmote: string;
+	/** The last emote (ball) */
 	endingPointerEmote: string;
+	/** The width of the progress bar */
 	width: number;
 };
 
-/**
- * The options for lavalink
- * @property {string} host - The lavalink ip address
- * @property {number} port - The lavalink port
- * @property {string} password - The lavalink password
- *
- * @author Niek
- */
 type lavalinkOptions = {
+	/** The lavalink address */
 	host: string;
+	/** The lavalink port */
 	port: number;
+	/** The lavalink password */
 	password: string;
 };
 
-/**
- * The options for the logger
- * @property {string} color - The default logging color in HEX format
- * @property {string} errorColor - The error logging color in HEX format
- *
- * @author Niek
- */
 type loggerOptions = {
+	/** The default logging color in HEX format */
 	color: string;
+	/** The error logging color in HEX format */
 	errorColor: string;
+	/** The emoji that is used for normal logs */
 	emoji: string;
+	/** The emoji that is used for error logs */
 	errorEmoji: string;
 };

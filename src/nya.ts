@@ -52,7 +52,7 @@ export const client = new NyaClient({
 			events:        join(__dirname, "./events"),
 			slashCommands: join(__dirname, "./commands")
 		},
-		token:   nyaOptions.discord.token
+		token:   nyaOptions.token
 	}, new Manager({
 		// Pass an array of node. Note: You do not need to pass any if you are using the default values (ones shown below).
 		nodes: [

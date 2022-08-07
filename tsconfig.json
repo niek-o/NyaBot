@@ -13,5 +13,19 @@
     "types": [
       "@infinite-fansub/logger/globals"
     ]
+  },
+  "typedocOptions": {
+    "entryPoints": [
+      "src/nya.ts",
+      "src/utils/*.ts",
+      "src/utils/Typings/*.ts",
+      "src/utils/asciifier/asciifier.ts",
+    ],
+    "out": "docs",
+    "excludeExternals": true,
+    "hideGenerator": true,
+    "plugin": ["typedoc-plugin-missing-exports", "typedoc-theme-hierarchy"],
+    "theme": "hierarchy",
+    "sort": "static-first"
   }
 }
