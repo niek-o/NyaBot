@@ -1,5 +1,7 @@
 # NyaBot
 
+[Documentation](https://niek-o.github.io/NyaBot/)
+
 ## Current features:
 
 - Music
