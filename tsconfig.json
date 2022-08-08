@@ -30,6 +30,6 @@
     ],
     "theme": "hierarchy",
     "sort": "static-first",
-    "githubPages": false
+    "githubPages": true
   }
 }
