@@ -13,6 +13,7 @@ import { fetch }                                               from "undici";
  */
 export const timeout = promisify(setTimeout);
 
+//region Music logic
 /**
  * Generate the now playing data
  *
@@ -141,7 +142,7 @@ export async function getThumbnail(track: Track): Promise<string> {
 		});
 	
 	if (res && res.ok) return track.displayThumbnail("maxresdefault");
-
+	
 	logger.error("Could not find thumbnail for this track. Searching on YouTube...");
 	
 	const youtube      = new Client();
@@ -150,6 +151,9 @@ export async function getThumbnail(track: Track): Promise<string> {
 	return searchResult.items[0].thumbnails.best as string;
 }
 
+//endregion
+
+//#region Embeds
 /**
  * Get the base embed
  *
@@ -193,3 +197,5 @@ export function getBaseErrorEmbed(error?: string) {
 						? error
 						: null);
 }
+
+//#endregion

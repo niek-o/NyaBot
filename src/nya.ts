@@ -5,7 +5,8 @@ import { readdirSync }                    from "node:fs";
 import { join }                           from "node:path";
 import nyaOptions                         from "./config";
 import { Color }                          from "colours.js/dst";
-require("@infinite-fansub/logger")
+
+require("@infinite-fansub/logger");
 
 //#region Setup logger
 logger.showMemory = false;
@@ -23,6 +24,7 @@ logger.colors = {
 
 //#endregion
 
+//#region Define client
 export class NyaClient extends InfiniteClient {
 	declare public user: ClientUser;
 	public manager: Manager;
@@ -40,6 +42,9 @@ export class NyaClient extends InfiniteClient {
 	}
 }
 
+//#endregion
+
+//#region Setup client
 export const client = new NyaClient({
 		intents: [
 			GatewayIntentBits.Guilds,
@@ -71,3 +76,5 @@ export const client = new NyaClient({
 		},
 	})
 );
+
+//#endregion

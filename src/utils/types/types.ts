@@ -67,4 +67,5 @@ interface ILoggerOptions {
 	/** The emoji that is used for error logs */
 	errorEmoji: string;
 }
+
 //#endregion
