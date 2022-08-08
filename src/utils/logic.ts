@@ -4,6 +4,7 @@ import nyaOptions                                              from "../config";
 import { Client }                                              from "youtubei";
 import { client }                                              from "../nya";
 import { EmbedBuilder, GuildMember, Interaction, TextChannel } from "discord.js";
+import { fetch }                                               from "undici";
 
 /**
  * A timeout generator (in ms)
@@ -125,7 +126,7 @@ export function generateQueue(player: Player) {
 }
 
 /**
- * Get thumbnail
+ * Get thumbnail for a track
  *
  * @param track - The track that you want the thumbnail from
  *
@@ -133,8 +134,15 @@ export function generateQueue(player: Player) {
  *
  * @author Niek
  */
-export async function getThumbnail(track: Track) {
-	if (track.displayThumbnail("maxresdefault")) return track.displayThumbnail("maxresdefault");
+export async function getThumbnail(track: Track): Promise<string> {
+	const res = await fetch(track.displayThumbnail("maxresdefault"))
+		.catch((err) => {
+			logger.error(err);
+		});
+	
+	if (res && res.ok) return track.displayThumbnail("maxresdefault");
+
+	logger.error("Could not find thumbnail for this track. Searching on YouTube...");
 	
 	const youtube      = new Client();
 	const searchResult = await youtube.search(`${ track.author } - ${ track.title }`, { type: "video" });

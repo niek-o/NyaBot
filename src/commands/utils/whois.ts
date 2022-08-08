@@ -23,20 +23,22 @@ export default <ISlashCommand>{
 		
 		const newJoinedTimestamp = (originalJoinedTimestamp - (originalJoinedTimestamp % 1000)) / 1000;
 		
-		const embed = getBaseEmbed(interaction, "Whois")
-			.setColor(mention.displayHexColor)
-			.setThumbnail(`${ mention.user.avatarURL() }`)
-			.setFooter({ text: `${ mention.user.tag }`, iconURL: `${ mention.user.avatarURL() }` })
-			.addFields(
-				{
-					name:  "Roles:",
-					value: `${ mention.roles.cache.filter(r => r.id != interaction.guild?.id)
-									  .map(r => r) }`
-				},
-				{ name: "Created at:", value: `<t:${ newCreatedTimestamp }>` },
-				{ name: "Joined at:", value: `<t:${ newJoinedTimestamp }>` }
-			);
-		
-		await interaction.reply({ embeds: [embed] });
+		await interaction.reply({
+			embeds: [
+				getBaseEmbed(interaction, "Whois")
+					.setColor(mention.displayHexColor)
+					.setThumbnail(`${ mention.user.avatarURL() }`)
+					.setFooter({ text: `${ mention.user.tag }`, iconURL: `${ mention.user.avatarURL() }` })
+					.addFields(
+						{
+							name:  "Roles:",
+							value: `${ mention.roles.cache.filter(r => r.id != interaction.guild?.id)
+											  .map(r => r) }`
+						},
+						{ name: "Created at:", value: `<t:${ newCreatedTimestamp }>` },
+						{ name: "Joined at:", value: `<t:${ newJoinedTimestamp }>` }
+					)
+			]
+		});
 	},
 };

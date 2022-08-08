@@ -36,25 +36,27 @@ export default <ISlashCommand>{
 			return interaction.editReply({ embeds: [getBaseErrorEmbed("There is no music playing.")] });
 		}
 		
-		const embed = getBaseEmbed(interaction, "Now playing")
-			.addFields(
-				{
-					name:   "Author",
-					value:  player.queue.current.author
-							? player.queue.current.author
-							: "",
-					inline: true
-				},
-				{ name: "Track", value: player.queue.current.title, inline: true },
-				{
-					name: "Progress", value: generateNowPlayingData(
-						player.queue.current.duration,
-						player.position
+		return interaction.editReply({
+			embeds: [
+				getBaseEmbed(interaction, "Now playing")
+					.addFields(
+						{
+							name:   "Author",
+							value:  player.queue.current.author
+									? player.queue.current.author
+									: "",
+							inline: true
+						},
+						{ name: "Track", value: player.queue.current.title, inline: true },
+						{
+							name: "Progress", value: generateNowPlayingData(
+								player.queue.current.duration,
+								player.position
+							)
+						}
 					)
-				}
-			)
-			.setImage(await getThumbnail(player.queue.current as Track));
-		
-		return interaction.editReply({ embeds: [embed] });
+					.setImage(await getThumbnail(player.queue.current as Track))
+			]
+		});
 	},
 };

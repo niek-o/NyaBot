@@ -3,7 +3,7 @@ import { GuildMember, TextChannel, SlashCommandBuilder } from "discord.js";
 import { SearchResult }                                  from "erela.js";
 import nyaOptions                                        from "../../config";
 import { client }                                        from "../../nya";
-import { getBaseEmbed, getBaseErrorEmbed }               from "../../utils/logic";
+import { getBaseEmbed, getBaseErrorEmbed, getThumbnail } from "../../utils/logic";
 
 export default <ISlashCommand>{
 	data: new SlashCommandBuilder()
@@ -70,12 +70,22 @@ export default <ISlashCommand>{
 				player.queue.add(res.tracks[0]);
 				
 				if (!player.playing && !player.queue.size && !player.paused) await player.play();
-				return interaction.editReply({ embeds: [getBaseEmbed(interaction, "Enqueuing", `Enqueuing ${res.tracks[0].author} - ${ res.tracks[0].title }`)] });
+				return interaction.editReply({
+					embeds: [
+						getBaseEmbed(interaction, "Enqueuing", `${ res.tracks[0].author } - ${ res.tracks[0].title }`)
+							.setThumbnail(await getThumbnail(res.tracks[0]))
+					]
+				});
 			case "PLAYLIST_LOADED":
 				player.queue.add(res.tracks);
 				
 				if (!player.playing && player.queue.totalSize === res.tracks.length && !player.paused) await player.play();
-				return interaction.editReply({ embeds: [getBaseEmbed(interaction, "Enqueuing", `Enqueuing ${ res.playlist?.name } with ${ res.tracks.length } tracks.`)] });
+				return interaction.editReply({
+					embeds: [
+						getBaseEmbed(interaction, "Enqueuing", `Enqueuing ${ res.playlist?.name } with ${ res.tracks.length } tracks.`)
+							.setThumbnail(await getThumbnail(res.tracks[0]))
+					]
+				});
 		}
 	},
 };

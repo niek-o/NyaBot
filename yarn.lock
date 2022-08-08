@@ -1171,6 +1171,7 @@ __metadata:
     typedoc-plugin-missing-exports: ^0.23.0
     typedoc-theme-hierarchy: ^3.0.0
     typescript: ^4.7.4
+    undici: ^5.8.1
     youtubei: ^1.0.0-rc.3
   languageName: unknown
   linkType: soft
@@ -1572,7 +1573,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:^5.8.0":
+"undici@npm:^5.8.0, undici@npm:^5.8.1":
   version: 5.8.1
   resolution: "undici@npm:5.8.1"
   checksum: 0d5d8b9654f031a5490dcd89cd73db452ad51b06def08ce4ac07a1a46564cb6f039be4862bc013ec45b7ca465a468eb5c4caa761a26541958307f8d75878129a

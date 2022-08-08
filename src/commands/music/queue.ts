@@ -28,13 +28,15 @@ export default <ISlashCommand>{
 			return interaction.editReply({ embeds: [getBaseErrorEmbed("There is no music playing.")] });
 		}
 		
-		const embed = getBaseEmbed(interaction, "Queue")
-			.addFields(
-				{ name: "Now playing", value: `${ player.queue.current.author } - ${ player.queue.current.title }` },
-				{ name: "Queue", value: generateQueue(player) }
-			)
-			.setImage(await getThumbnail(player.queue.current as Track));
-		
-		return interaction.editReply({ embeds: [embed] });
+		return interaction.editReply({
+			embeds: [
+				getBaseEmbed(interaction, "Queue")
+					.addFields(
+						{ name: "Now playing", value: `${ player.queue.current.author } - ${ player.queue.current.title }` },
+						{ name: "Queue", value: generateQueue(player) }
+					)
+					.setImage(await getThumbnail(player.queue.current as Track))
+			]
+		});
 	},
 };

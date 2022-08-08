@@ -1,21 +1,22 @@
+//#region Bot options
+
 /**
  * The global configuration for the bot.
  *
- * See [src/config.ts](https://github.com/niek-o/NyaBot/blob/main/src/config.ts) for a template.
+ * See [src/types.ts](https://github.com/niek-o/NyaBot/blob/main/src/config.ts) for a template.
  */
-
 export interface INyaOptions {
 	token: string;
-	music: musicOptions;
-	logger: loggerOptions;
+	music: IMusicOptions;
+	logger: ILoggerOptions;
 }
 
-type musicOptions = {
-	options: playerOptions;
-	lavalink: lavalinkOptions;
-};
+interface IMusicOptions {
+	options: IPlayerOptions;
+	lavalink: ILavalinkOptions;
+}
 
-type playerOptions = {
+interface IPlayerOptions {
 	/** Leave the voice channel when the queue ends */
 	leaveOnQueueEnd: boolean;
 	/** The leave timeout in ms */
@@ -25,10 +26,10 @@ type playerOptions = {
 	/** Deafen the bot on join */
 	deafenOnJoin: boolean;
 	/** The options for the progress bar */
-	progressBar: progressBarOptions;
-};
+	progressBar: IProgressBarOptions;
+}
 
-type progressBarOptions = {
+interface IProgressBarOptions {
 	/** The first emote (full) */
 	fullBeginningEmote: string;
 	/** The middle emote (full) */
@@ -45,18 +46,18 @@ type progressBarOptions = {
 	endingPointerEmote: string;
 	/** The width of the progress bar */
 	width: number;
-};
+}
 
-type lavalinkOptions = {
+interface ILavalinkOptions {
 	/** The lavalink address */
 	host: string;
 	/** The lavalink port */
 	port: number;
 	/** The lavalink password */
 	password: string;
-};
+}
 
-type loggerOptions = {
+interface ILoggerOptions {
 	/** The default logging color in HEX format */
 	color: string;
 	/** The error logging color in HEX format */
@@ -65,4 +66,5 @@ type loggerOptions = {
 	emoji: string;
 	/** The emoji that is used for error logs */
 	errorEmoji: string;
-};
+}
+//#endregion

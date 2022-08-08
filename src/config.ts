@@ -1,4 +1,4 @@
-import { INyaOptions } from "./utils/Typings/ConfigTypes";
+import { INyaOptions } from "./utils/types/types";
 
 const nyaOptions: INyaOptions = {
 	token:  "",

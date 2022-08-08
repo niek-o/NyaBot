@@ -9,10 +9,12 @@ export = {
 		const channel = client.channels.cache.find((channel) => channel.id === player.textChannel);
 		
 		if (channel instanceof TextChannel) {
-			const embed = getBaseEmbed(channel, "Now playing", `${ track.author } - ${ track.title }`)
-				.setImage(await getThumbnail(track));
-			
-			await channel.send({ embeds: [embed] });
+			await channel.send({
+				embeds: [
+					getBaseEmbed(channel, "Now playing", `${ track.author } - ${ track.title }`)
+						.setImage(await getThumbnail(track))
+				]
+			});
 		}
 		logger.log(`${ client.guilds.cache.get(player.guild)?.name }: Playing ${ track.title }`);
 	},

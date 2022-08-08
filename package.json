@@ -20,6 +20,7 @@
     "erela.js": "^2.3.3",
     "jimp": "^0.16.1",
     "typedoc": "^0.23.10",
+    "undici": "^5.8.1",
     "youtubei": "^1.0.0-rc.3"
   },
   "scripts": {
