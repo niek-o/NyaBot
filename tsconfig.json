@@ -15,6 +15,7 @@
     ]
   },
   "typedocOptions": {
+    "name": "NyaBot",
     "entryPoints": [
       "src/nya.ts",
       "src/utils/*.ts",
@@ -30,6 +31,7 @@
     ],
     "theme": "hierarchy",
     "sort": "static-first",
-    "githubPages": true
+    "githubPages": true,
+    "readme": "src/DOCS.md"
   }
 }
