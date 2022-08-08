@@ -19,13 +19,17 @@
       "src/nya.ts",
       "src/utils/*.ts",
       "src/utils/types/*.ts",
-      "src/utils/asciifier/asciifier.ts",
+      "src/utils/asciifier/asciifier.ts"
     ],
     "out": "docs",
     "excludeExternals": true,
     "hideGenerator": true,
-    "plugin": ["typedoc-plugin-missing-exports", "typedoc-theme-hierarchy"],
+    "plugin": [
+      "typedoc-plugin-missing-exports",
+      "typedoc-theme-hierarchy"
+    ],
     "theme": "hierarchy",
-    "sort": "static-first"
+    "sort": "static-first",
+    "githubPages": false
   }
 }
