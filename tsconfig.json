@@ -27,7 +27,8 @@
     "hideGenerator": true,
     "plugin": [
       "typedoc-plugin-missing-exports",
-      "typedoc-theme-hierarchy"
+      "typedoc-theme-hierarchy",
+      "typedoc-plugin-coverage"
     ],
     "theme": "hierarchy",
     "sort": "static-first",

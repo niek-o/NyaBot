@@ -1168,6 +1168,7 @@ __metadata:
     erela.js: ^2.3.3
     jimp: ^0.16.1
     typedoc: ^0.23.10
+    typedoc-plugin-coverage: ^2.0.0
     typedoc-plugin-missing-exports: ^0.23.0
     typedoc-theme-hierarchy: ^3.0.0
     typescript: ^4.7.4
@@ -1505,6 +1506,15 @@ __metadata:
   version: 2.4.0
   resolution: "tslib@npm:2.4.0"
   checksum: 8c4aa6a3c5a754bf76aefc38026134180c053b7bd2f81338cb5e5ebf96fefa0f417bff221592bf801077f5bf990562f6264fecbc42cd3309b33872cb6fc3b113
+  languageName: node
+  linkType: hard
+
+"typedoc-plugin-coverage@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "typedoc-plugin-coverage@npm:2.0.0"
+  peerDependencies:
+    typedoc: ^0.22.12 || 0.23.x
+  checksum: d951c51df00f0ab64858804aed6c866bc475ddf80ddb7dcd2a6133f1b9d658a23f76f8047b5c94c67bd956bb7d5055633f4eff92b3bc3f9fa6e7c2e37a295056
   languageName: node
   linkType: hard
 
