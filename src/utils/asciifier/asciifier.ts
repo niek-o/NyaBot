@@ -1,5 +1,3 @@
-"use strict";
-
 import { Color, colorConsole } from "colours.js";
 import Jimp                    from "jimp";
 
