@@ -9,13 +9,13 @@ const chars = " .,:;i1tfLCG08@";
 const num_c = chars.length - 1;
 
 /**
- * Color the character
+ * The intensity of the pixel
  *
  * @param image - The image
  * @param x - The X coordinate
  * @param y - The Y coordinate
  *
- * @returns The color for the character in RGB
+ * @returns The intensity of the pixel
  */
 function intensity(image: Jimp, x: number, y: number) {
 	const color = Jimp.intToRGBA(image.getPixelColor(x, y));
@@ -23,14 +23,14 @@ function intensity(image: Jimp, x: number, y: number) {
 }
 
 /**
- * Turn character into ascii art character
+ * Turn an image into ascii art
  *
  * @param path - File path
  * @param color - Show color
  *
- * @returns The ascii art character
+ * @returns The ascii art
  */
-export const asciify = (path: string, color?: boolean) => {
+export function asciify(path: string, color?: boolean): Promise<string> {
 	// First open image to get initial properties
 	
 	return Jimp.read(path)
@@ -72,7 +72,7 @@ export const asciify = (path: string, color?: boolean) => {
 				   return asciiChar;
 			   })
 			   .catch((error: string) => logger.print(error));
-};
+}
 
 /**
  * Generate a row of the ascii art
@@ -80,7 +80,7 @@ export const asciify = (path: string, color?: boolean) => {
  * @param ascii - The character of the pixel
  * @param image - The image
  * @param coords - The coordinate of the pixel
- * @param norm - The norm
+ * @param norm - The normalization for the returned intensity so that it maps to a char
  * @param colorToggle - Enable grayscale mode
  *
  * @returns A row of the ascii art
@@ -89,10 +89,10 @@ function convertPixelsToString(ascii: string, image: Jimp, coords: number[], nor
 	const [i, j] = coords;
 	if (i === undefined || j === undefined) throw new Error();
 	
-	const color = intensity(image, i, j);
-	let next    = chars.charAt(Math.round(color / norm));
+	const characterIntensity = intensity(image, i, j);
+	let next    = chars.charAt(Math.round(characterIntensity / norm));
 	
-	// Color character using
+	// Color character
 	if (colorToggle) {
 		const clr = Jimp.intToRGBA(image.getPixelColor(i, j));
 		next      = colorConsole.uniform(next, Color.fromHex(rgb2hex(clr.r, clr.g, clr.b)));
