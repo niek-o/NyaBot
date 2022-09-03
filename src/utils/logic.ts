@@ -136,10 +136,12 @@ export function generateQueue(player: Player) {
  * @author Niek
  */
 export async function getThumbnail(track: Track): Promise<string> {
-	const res = await fetch(track.displayThumbnail("maxresdefault"))
-		.catch();
-	
-	if (res && res.ok) return track.displayThumbnail("maxresdefault");
+	if (track.displayThumbnail("maxresdefault")) {
+		const res = await fetch(track.displayThumbnail("maxresdefault"))
+			.catch();
+
+		if (res && res.ok) return track.displayThumbnail("maxresdefault");
+	}
 	
 	logger.error("Could not find thumbnail for this track. Searching on YouTube...");
 	

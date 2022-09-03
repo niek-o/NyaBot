@@ -94,13 +94,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@infinite-fansub/logger@npm:^1.8.0":
-  version: 1.8.0
-  resolution: "@infinite-fansub/logger@npm:1.8.0"
+"@infinite-fansub/logger@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@infinite-fansub/logger@npm:2.1.0"
   dependencies:
     colours.js: ^3.1.2
     tslib: ^2.4.0
-  checksum: 85aec1621b2c85f6c40312fd139e83666f705f4cf18e626c9104c304d1997a317c45072ab977c3f2ed27a788e3b8ac2b7ee75b7c2705a0a32e6fde0d88949bf7
+  checksum: e51135e12422a5f6515c0bef10d8af6ec6825045b9fd5589883119d5382e29cc531b68245b285bb20c9563a5ff5084bf88f27c3a63fb318799b4cb3d2657b7bb
   languageName: node
   linkType: hard
 
@@ -622,7 +622,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^18.6.4":
+"@types/node@npm:*":
   version: 18.6.4
   resolution: "@types/node@npm:18.6.4"
   checksum: fc453dd2b541f5812ba1a8f957f577727cf2d8aee886f1d5c03eb153b2b3373d2e0953c5bd2b7a5b184073bc317f54ec91f1ec4830a58eda4a833e90654021de
@@ -633,6 +633,13 @@ __metadata:
   version: 16.9.1
   resolution: "@types/node@npm:16.9.1"
   checksum: 41afcf183a22d59323a0199dd7e0f46591247f45fc08a4434edb26d56dc279ae4fdb80f37989ddd7a0f45e3857c4933e6e82057ede09c5a829f77e373e680375
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^18.7.14":
+  version: 18.7.14
+  resolution: "@types/node@npm:18.7.14"
+  checksum: 99cf28ff854100158de875cca23c7acc3cc01dfee526a52b90b7f36767c821bcbaf2be0a98a70f06f3b78f3c60639168ff949d725b61e2e124f9f71f1fb8043d
   languageName: node
   linkType: hard
 
@@ -1191,8 +1198,8 @@ __metadata:
   dependencies:
     "@discordjs/rest": ^1.1.0
     "@infinite-fansub/discord-client": ^0.9.5
-    "@infinite-fansub/logger": ^1.8.0
-    "@types/node": ^18.6.4
+    "@infinite-fansub/logger": ^2.1.0
+    "@types/node": ^18.7.14
     colours.js: ^3.1.2
     discord.js: ^14.1.2
     erela.js: "https://github.com/menudocs/erela.js#head=build"
@@ -1202,8 +1209,8 @@ __metadata:
     typedoc-plugin-missing-exports: ^0.23.0
     typedoc-theme-hierarchy: ^3.0.0
     typescript: ^4.7.4
-    undici: ^5.8.1
-    youtubei: ^1.0.0-rc.3
+    undici: ^5.10.0
+    youtubei: ^1.0.0-rc.5
   languageName: unknown
   linkType: soft
 
@@ -1613,17 +1620,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:^5.8.0, undici@npm:^5.8.1":
-  version: 5.8.1
-  resolution: "undici@npm:5.8.1"
-  checksum: 0d5d8b9654f031a5490dcd89cd73db452ad51b06def08ce4ac07a1a46564cb6f039be4862bc013ec45b7ca465a468eb5c4caa761a26541958307f8d75878129a
-  languageName: node
-  linkType: hard
-
-"undici@npm:^5.9.1":
+"undici@npm:^5.10.0, undici@npm:^5.9.1":
   version: 5.10.0
   resolution: "undici@npm:5.10.0"
   checksum: 7ba2b71dccc74cd2bdf645b83e9aaef374ae04855943d0a2f42a3d0b9e5556f37cc9b5156fb5288277a2fa95fd46a56f3ae0d5cf73db3f008d75ec41104b136c
+  languageName: node
+  linkType: hard
+
+"undici@npm:^5.8.0":
+  version: 5.8.1
+  resolution: "undici@npm:5.8.1"
+  checksum: 0d5d8b9654f031a5490dcd89cd73db452ad51b06def08ce4ac07a1a46564cb6f039be4862bc013ec45b7ca465a468eb5c4caa761a26541958307f8d75878129a
   languageName: node
   linkType: hard
 
@@ -1784,12 +1791,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"youtubei@npm:^1.0.0-rc.3":
-  version: 1.0.0-rc.3
-  resolution: "youtubei@npm:1.0.0-rc.3"
+"youtubei@npm:^1.0.0-rc.5":
+  version: 1.0.0-rc.5
+  resolution: "youtubei@npm:1.0.0-rc.5"
   dependencies:
     node-fetch: 2.6.7
     protocol-buffers: 5.0.0
-  checksum: a5e1ad515f1dd32de2d289ba9a10029ce9736e28967868b49b4a9308e6366f6033025cc09fd9d7686b50dde463aee31b716bb485d248480f71e9e9ca8516ae7b
+  checksum: 867baf2648d303c0df9d8cfd80a1cb4cd82dc4127e98928dcfd51dcf32c47d01a389745bddc67922105a5d308f2b59ad22a22c50a8b448f918e6519a32794092
   languageName: node
   linkType: hard
