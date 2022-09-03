@@ -27,10 +27,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@discordjs/collection@npm:^0.1.6":
-  version: 0.1.6
-  resolution: "@discordjs/collection@npm:0.1.6"
-  checksum: a0ddf757098fa01a4d9d5812daf3c2ea88c1297618d346705e603642c2f19656188fbfb3d503ee77f2ee69e7a1c1bfe25932aec032692ee3c338335524886e05
+"@discordjs/collection@npm:^0.2.1":
+  version: 0.2.4
+  resolution: "@discordjs/collection@npm:0.2.4"
+  checksum: 3333b65b742a876e0fe09faaff1aa5052873a68f15d47baaee39b59364d888e01f12fd04296ab1badb41af87f624bc75eaafa2d6753fdc9c5bf280667f4cb3c2
   languageName: node
   linkType: hard
 
@@ -805,14 +805,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"erela.js@npm:^2.3.3":
+"erela.js@https://github.com/menudocs/erela.js#head=build":
   version: 2.3.3
-  resolution: "erela.js@npm:2.3.3"
+  resolution: "erela.js@https://github.com/menudocs/erela.js.git#commit=4f2011caa914e768b8338b584fba7aa42267bba8"
   dependencies:
-    "@discordjs/collection": ^0.1.6
-    petitio: ^1.1.0
-    ws: ^7.3.1
-  checksum: a5416cac8613bdb4bd883cbc05d1ceadcf03e4543a3b5eea2f8a199043b8ece94a36b9860788d2a2e1401e506d6455841224c42e89a372f452d4603373f121a2
+    "@discordjs/collection": ^0.2.1
+    undici: ^4.11.0
+    ws: ^8.1.0
+  checksum: 4bc6d2e9b99947b9a0f5348fce2c0ee0ed67d6c64e7f21d4575e8478cd36cf2ebc1d9988d45abca7c9e13d6bd2c056ab4631af21a213a8df4642fa7f48cb92d2
   languageName: node
   linkType: hard
 
@@ -1195,7 +1195,7 @@ __metadata:
     "@types/node": ^18.6.4
     colours.js: ^3.1.2
     discord.js: ^14.1.2
-    erela.js: ^2.3.3
+    erela.js: "https://github.com/menudocs/erela.js#head=build"
     jimp: ^0.16.1
     typedoc: ^0.23.10
     typedoc-plugin-coverage: ^2.0.0
@@ -1256,13 +1256,6 @@ __metadata:
   version: 5.0.0
   resolution: "peek-readable@npm:5.0.0"
   checksum: bef5ceb50586eb42e14efba274ac57ffe97f0ed272df9239ce029f688f495d9bf74b2886fa27847c706a9db33acda4b7d23bbd09a2d21eb4c2a54da915117414
-  languageName: node
-  linkType: hard
-
-"petitio@npm:^1.1.0":
-  version: 1.4.0
-  resolution: "petitio@npm:1.4.0"
-  checksum: 1219a921e2faae94389bb057a48d4efe8433de493f27b39d7d84427ea2d2a7a5ecf98d39331421c6be7febcac7246cb705458b14503a24bbadc07d6117dcc3ab
   languageName: node
   linkType: hard
 
@@ -1613,6 +1606,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"undici@npm:^4.11.0":
+  version: 4.16.0
+  resolution: "undici@npm:4.16.0"
+  checksum: 5e88c2b3381085e25ed1d1a308610ac7ee985f478ac705af7a8e03213536e10f73ef8dd8d85e6ed38948d1883fa0ae935e04357c317b0f5d3d3c0211d0c8c393
+  languageName: node
+  linkType: hard
+
 "undici@npm:^5.8.0, undici@npm:^5.8.1":
   version: 5.8.1
   resolution: "undici@npm:5.8.1"
@@ -1719,22 +1719,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:^7.3.1":
-  version: 7.5.9
-  resolution: "ws@npm:7.5.9"
-  peerDependencies:
-    bufferutil: ^4.0.1
-    utf-8-validate: ^5.0.2
-  peerDependenciesMeta:
-    bufferutil:
-      optional: true
-    utf-8-validate:
-      optional: true
-  checksum: c3c100a181b731f40b7f2fddf004aa023f79d64f489706a28bc23ff88e87f6a64b3c6651fbec3a84a53960b75159574d7a7385709847a62ddb7ad6af76f49138
-  languageName: node
-  linkType: hard
-
-"ws@npm:^8.8.1":
+"ws@npm:^8.1.0, ws@npm:^8.8.1":
   version: 8.8.1
   resolution: "ws@npm:8.8.1"
   peerDependencies:

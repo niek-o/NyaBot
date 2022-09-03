@@ -137,9 +137,7 @@ export function generateQueue(player: Player) {
  */
 export async function getThumbnail(track: Track): Promise<string> {
 	const res = await fetch(track.displayThumbnail("maxresdefault"))
-		.catch((err) => {
-			logger.error(err);
-		});
+		.catch();
 	
 	if (res && res.ok) return track.displayThumbnail("maxresdefault");
 	

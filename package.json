@@ -19,7 +19,7 @@
     "@infinite-fansub/logger": "^1.8.0",
     "colours.js": "^3.1.2",
     "discord.js": "^14.1.2",
-    "erela.js": "^2.3.3",
+    "erela.js": "https://github.com/menudocs/erela.js#head=build",
     "jimp": "^0.16.1",
     "typedoc": "^0.23.10",
     "undici": "^5.8.1",
