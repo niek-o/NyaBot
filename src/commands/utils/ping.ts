@@ -5,7 +5,7 @@ import { client }              from "../../nya";
 export default <ISlashCommand>{
 	data: new SlashCommandBuilder()
 			  .setName("ping")
-			  .setDescription("Replies with Pong!"),
+			  .setDescription("Replies with the websocket heartbeat."),
 	post: "GLOBAL",
 	
 	async execute(interaction) {

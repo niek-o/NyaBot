@@ -29,7 +29,7 @@ export class NyaClient extends InfiniteClient {
 	declare public user: ClientUser;
 	public manager: Manager;
 	private musicEventFiles: string[] = readdirSync(join(__dirname, "./musicEvents"))
-		.filter((f) => f.endsWith(".ts") || f.endsWith(".js"));
+		.filter((f) => f.endsWith(".ts"));
 	
 	constructor(options: IClientOptions, manager: Manager) {
 		super(options);
@@ -59,17 +59,9 @@ export const client = new NyaClient({
 		},
 		token:   nyaOptions.token
 	}, new Manager({
-		// Pass an array of node. Note: You do not need to pass any if you are using the default values (ones shown below).
 		nodes: [
-			// If you pass an object like so the "host" property is required
-			{
-				host:     nyaOptions.music.lavalink.host, // Optional if Lavalink is local
-				port:     nyaOptions.music.lavalink.port, // Optional if Lavalink is set to default
-				password: nyaOptions.music.lavalink.password, // Optional if Lavalink is set to default
-			},
+			nyaOptions.music.lavalink
 		],
-		// A send method to send data to the Discord WebSocket using your library.
-		// Getting the shard for the guild and sending the data to the WebSocket.
 		send(id: string, payload: Payload) {
 			const guild = client.guilds.cache.get(id);
 			if (guild) guild.shard.send(payload);

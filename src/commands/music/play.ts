@@ -48,7 +48,7 @@ export default <ISlashCommand>{
 		
 		if (player.state !== "CONNECTED") player.connect();
 		
-		let query: string = interaction.options.getString("query", true);
+		const query = interaction.options.getString("query", true);
 		
 		const req = async (i: string) =>
 			await client.manager.search(i, interaction.user)

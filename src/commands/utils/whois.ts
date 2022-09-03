@@ -8,7 +8,7 @@ export default <ISlashCommand>{
 			  .setDescription("Replies with information about you.")
 			  .addUserOption((option) =>
 				  option.setName("user")
-						.setDescription("The user you want information about")
+						.setDescription("The user you want information about.")
 						.setRequired(false)),
 	post: "GLOBAL",
 	
