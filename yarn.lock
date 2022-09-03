@@ -1209,7 +1209,6 @@ __metadata:
     typedoc-plugin-missing-exports: ^0.23.0
     typedoc-theme-hierarchy: ^3.0.0
     typescript: ^4.7.4
-    undici: ^5.10.0
     youtubei: ^1.0.0-rc.5
   languageName: unknown
   linkType: soft
@@ -1620,17 +1619,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:^5.10.0, undici@npm:^5.9.1":
-  version: 5.10.0
-  resolution: "undici@npm:5.10.0"
-  checksum: 7ba2b71dccc74cd2bdf645b83e9aaef374ae04855943d0a2f42a3d0b9e5556f37cc9b5156fb5288277a2fa95fd46a56f3ae0d5cf73db3f008d75ec41104b136c
-  languageName: node
-  linkType: hard
-
 "undici@npm:^5.8.0":
   version: 5.8.1
   resolution: "undici@npm:5.8.1"
   checksum: 0d5d8b9654f031a5490dcd89cd73db452ad51b06def08ce4ac07a1a46564cb6f039be4862bc013ec45b7ca465a468eb5c4caa761a26541958307f8d75878129a
+  languageName: node
+  linkType: hard
+
+"undici@npm:^5.9.1":
+  version: 5.10.0
+  resolution: "undici@npm:5.10.0"
+  checksum: 7ba2b71dccc74cd2bdf645b83e9aaef374ae04855943d0a2f42a3d0b9e5556f37cc9b5156fb5288277a2fa95fd46a56f3ae0d5cf73db3f008d75ec41104b136c
   languageName: node
   linkType: hard
 

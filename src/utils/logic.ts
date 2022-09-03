@@ -4,7 +4,6 @@ import nyaOptions                                              from "../config";
 import { Client }                                              from "youtubei";
 import { client }                                              from "../nya";
 import { EmbedBuilder, GuildMember, Interaction, TextChannel } from "discord.js";
-import { fetch }                                               from "undici";
 
 /**
  * A timeout generator (in ms)
