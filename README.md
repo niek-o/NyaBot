@@ -2,6 +2,8 @@
 
 [Documentation](https://niek-o.github.io/NyaBot/)
 
+<img src="https://github.com/niek-o/NyaBot/blob/gh-pages/coverage.svg">
+
 ## Current features:
 
 - Music
