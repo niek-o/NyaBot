@@ -1,8 +1,8 @@
 import { TextChannel }           from "discord.js";
 import { Player }                from "erela.js";
-import nyaOptions                from "../config";
-import { client }                from "../nya";
-import { getBaseEmbed, timeout } from "../utils/logic";
+import nyaOptions                from "../../config";
+import { client }                from "../../nya";
+import { getBaseEmbed, timeout } from "../../utils/logic";
 
 export = {
 	name: "queueEnd",

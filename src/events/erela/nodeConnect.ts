@@ -1,4 +1,4 @@
-import { Node }         from "erela.js";
+import { Node } from "erela.js";
 
 export = {
 	name: "nodeConnect",

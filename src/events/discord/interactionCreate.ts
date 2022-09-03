@@ -1,5 +1,5 @@
-import { Event }        from "@infinite-fansub/discord-client";
-import { TextChannel }  from "discord.js";
+import { Event }       from "@infinite-fansub/discord-client";
+import { TextChannel } from "discord.js";
 
 export default <Event<"interactionCreate">>{
 	event: "interactionCreate",

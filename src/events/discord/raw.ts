@@ -1,6 +1,6 @@
 import { Event, IClientEvents } from "@infinite-fansub/discord-client";
 import { VoicePacket }          from "erela.js";
-import { client }               from "../nya";
+import { client }               from "../../nya";
 
 interface NyaEvents extends IClientEvents {
 	raw: [d: VoicePacket];

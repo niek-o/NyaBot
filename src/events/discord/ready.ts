@@ -1,7 +1,7 @@
 import { Event }        from "@infinite-fansub/discord-client";
 import { ActivityType } from "discord.js";
-import { NyaClient }    from "../nya";
-import { asciify }      from "../utils/asciifier";
+import { NyaClient }    from "../../nya";
+import { asciify }      from "../../utils/asciifier";
 
 export default <Event<"ready">>{
 	event: "ready",

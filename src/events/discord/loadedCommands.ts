@@ -1,4 +1,4 @@
-import { Event }        from "@infinite-fansub/discord-client";
+import { Event } from "@infinite-fansub/discord-client";
 
 export default <Event<"loadedSlash">>{
 	event: "loadedSlash",
@@ -9,10 +9,10 @@ export default <Event<"loadedSlash">>{
 				logger.log(`Loaded Global command: ${ name }`);
 			});
 		}
-        else {
+		else {
 			cmds.forEach(({ name }) => {
-				logger.log(`Loaded ${ name } on: ${ type }`)
-			})
+				logger.log(`Loaded ${ name } on: ${ type }`);
+			});
 		}
 	}
-}
+};

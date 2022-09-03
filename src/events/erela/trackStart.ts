@@ -1,7 +1,7 @@
 import { TextChannel }                from "discord.js";
 import { Player, Track }              from "erela.js";
-import { client }                     from "../nya";
-import { getBaseEmbed, getThumbnail } from "../utils/logic";
+import { client }                     from "../../nya";
+import { getBaseEmbed, getThumbnail } from "../../utils/logic";
 
 export = {
 	name: "trackStart",

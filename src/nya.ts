@@ -28,7 +28,7 @@ logger.colors = {
 export class NyaClient extends InfiniteClient {
 	declare public user: ClientUser;
 	public manager: Manager;
-	private musicEventFiles: string[] = readdirSync(join(__dirname, "./musicEvents"))
+	private musicEventFiles: string[] = readdirSync(join(__dirname, "./events/erela"))
 		.filter((f) => f.endsWith(".ts"));
 	
 	constructor(options: IClientOptions, manager: Manager) {
@@ -36,7 +36,7 @@ export class NyaClient extends InfiniteClient {
 		this.manager = manager;
 		// MusicEvents handling
 		this.musicEventFiles.forEach(async (f) => {
-			const event = (await import(`./musicEvents/${ f }`)).default;
+			const event = (await import(`./events/erela/${ f }`)).default;
 			this.manager.on(event.name, (...args) => event.execute(...args));
 		});
 	}
@@ -54,7 +54,7 @@ export const client = new NyaClient({
 			warnings: true
 		},
 		dirs:    {
-			events:        join(__dirname, "./events"),
+			events:        join(__dirname, "./events/discord"),
 			slashCommands: join(__dirname, "./commands")
 		},
 		token:   nyaOptions.token
