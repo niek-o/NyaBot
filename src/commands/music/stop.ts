@@ -7,6 +7,8 @@ export default <ISlashCommand>{
 	data: new SlashCommandBuilder()
 			  .setName("stop")
 			  .setDescription("Stop the player."),
+	post: "GLOBAL",
+	
 	async execute(interaction) {
 		if (
 			!interaction.guild ||

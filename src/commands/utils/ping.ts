@@ -6,6 +6,8 @@ export default <ISlashCommand>{
 	data: new SlashCommandBuilder()
 			  .setName("ping")
 			  .setDescription("Replies with Pong!"),
+	post: "GLOBAL",
+	
 	async execute(interaction) {
 		await interaction.reply(`Websocket heartbeat: ${ client.ws.ping }ms.`);
 	},

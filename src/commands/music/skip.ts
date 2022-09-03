@@ -7,6 +7,8 @@ export default <ISlashCommand>{
 	data: new SlashCommandBuilder()
 			  .setName("skip")
 			  .setDescription("Skip the current song."),
+	post: "GLOBAL",
+	
 	async execute(interaction) {
 		if (
 			!interaction.guild ||

@@ -10,6 +10,8 @@ export default <ISlashCommand>{
 				  option.setName("user")
 						.setDescription("The user you want information about")
 						.setRequired(false)),
+	post: "GLOBAL",
+	
 	async execute(interaction) {
 		const mention = interaction.options.getMember("user") || interaction.member;
 		

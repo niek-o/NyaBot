@@ -7,6 +7,8 @@ export default <ISlashCommand>{
 	data: new SlashCommandBuilder()
 			  .setName("pause")
 			  .setDescription("Pause the current track."),
+	post: "GLOBAL",
+	
 	async execute(interaction) {
 		if (
 			!interaction.guild ||

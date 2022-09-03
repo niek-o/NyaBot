@@ -7,6 +7,8 @@ export default <ISlashCommand>{
 	data: new SlashCommandBuilder()
 			  .setName("resume")
 			  .setDescription("Resume the current track."),
+	post: "GLOBAL",
+	
 	async execute(interaction) {
 		if (
 			!interaction.guild ||

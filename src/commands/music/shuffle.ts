@@ -7,6 +7,8 @@ export default <ISlashCommand>{
 	data: new SlashCommandBuilder()
 			  .setName("shuffle")
 			  .setDescription("Shuffle the queue."),
+	post: "GLOBAL",
+	
 	async execute(interaction) {
 		if (
 			!interaction.guild ||

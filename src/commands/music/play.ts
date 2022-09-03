@@ -12,6 +12,8 @@ export default <ISlashCommand>{
 			  .addStringOption((option) => option.setName("query")
 												 .setDescription("search query")
 												 .setRequired(true)),
+	post: "GLOBAL",
+	
 	async execute(interaction) {
 		if (
 			!interaction.guild ||

@@ -8,6 +8,8 @@ export default <ISlashCommand>{
 	data: new SlashCommandBuilder()
 			  .setName("nowplaying")
 			  .setDescription("Get the song that is currently playing."),
+	post: "GLOBAL",
+	
 	async execute(interaction) {
 		if (
 			!interaction.guild ||

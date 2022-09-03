@@ -8,6 +8,8 @@ export default <ISlashCommand>{
 	data: new SlashCommandBuilder()
 			  .setName("queue")
 			  .setDescription("Display the queue."),
+	post: "GLOBAL",
+	
 	async execute(interaction) {
 		if (
 			!interaction.guild ||

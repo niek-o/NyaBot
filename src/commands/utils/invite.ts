@@ -7,6 +7,8 @@ export default <ISlashCommand>{
 	data: new SlashCommandBuilder()
 			  .setName("invite")
 			  .setDescription("Replies with invite link for the bot."),
+	post: "GLOBAL",
+	
 	async execute(interaction) {
 		await interaction.reply({
 			embeds: [
