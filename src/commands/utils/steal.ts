@@ -13,7 +13,7 @@ export default <ISlashCommand>{
 			  .addStringOption((option) => option.setName("name")
 												 .setDescription("Name of the emoji")
 												 .setRequired(true)),
-	post: "910517569553829888",
+	post: "GLOBAL",
 	
 	async execute(interaction) {
 		if (
