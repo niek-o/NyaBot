@@ -71,6 +71,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@infinite-fansub/discord-client@npm:*":
+  version: 0.12.0
+  resolution: "@infinite-fansub/discord-client@npm:0.12.0"
+  dependencies:
+    "@infinite-fansub/logger": "*"
+    discord.js: ^14.1.2
+    mongoose: ^6.3.1
+    redis: ^4.0.6
+    redis-om: ^0.3.3
+    tslib: ^2.4.0
+  checksum: 196333f242a788036a02fb63b732e11fa254630bfed6bc5cb66b890c1ea20ee5ecc8dd171da57b7094262351b37be95e5f072a3d6cef860c68cf771bcf1f8cb3
+  languageName: node
+  linkType: hard
+
 "@infinite-fansub/discord-client@npm:^0.9.5":
   version: 0.9.5
   resolution: "@infinite-fansub/discord-client@npm:0.9.5"
@@ -82,6 +96,16 @@ __metadata:
     redis-om: ^0.3.3
     tslib: ^2.4.0
   checksum: 73f1f908312da582ab854ca41b7fe337ce54a50262cf5b57e79aad5a192fba7ddb1a39ce3fc8661f07e1b28327c6e8fac76dac10300e0424702481a06707e3e2
+  languageName: node
+  linkType: hard
+
+"@infinite-fansub/erela-module@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "@infinite-fansub/erela-module@npm:0.6.0"
+  dependencies:
+    "@infinite-fansub/discord-client": "*"
+    erela.js: "github:MenuDocs/erela.js#build"
+  checksum: 1df121587d4c6c1188458e4e5ae4c1d9cdb75e1c1e8f6ccc087696e173b623346f314a5bcb2104d391f618ccd28439e495c1e5a8e67f383fdf34c100b7fbbbfc
   languageName: node
   linkType: hard
 
@@ -812,6 +836,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"erela.js@github:MenuDocs/erela.js#build":
+  version: 2.3.3
+  resolution: "erela.js@https://github.com/MenuDocs/erela.js.git#commit=4f2011caa914e768b8338b584fba7aa42267bba8"
+  dependencies:
+    "@discordjs/collection": ^0.2.1
+    undici: ^4.11.0
+    ws: ^8.1.0
+  checksum: b346db4ae594a737cc997e03f378c92ba2dd5883e81fd0c88fdcf4b8e4a4bef58356ca87cec550545fae7d9b58cbb4384f52cee2887765198aea3fb0aa23aa90
+  languageName: node
+  linkType: hard
+
 "erela.js@https://github.com/menudocs/erela.js#head=build":
   version: 2.3.3
   resolution: "erela.js@https://github.com/menudocs/erela.js.git#commit=4f2011caa914e768b8338b584fba7aa42267bba8"
@@ -819,7 +854,7 @@ __metadata:
     "@discordjs/collection": ^0.2.1
     undici: ^4.11.0
     ws: ^8.1.0
-  checksum: 4bc6d2e9b99947b9a0f5348fce2c0ee0ed67d6c64e7f21d4575e8478cd36cf2ebc1d9988d45abca7c9e13d6bd2c056ab4631af21a213a8df4642fa7f48cb92d2
+  checksum: b346db4ae594a737cc997e03f378c92ba2dd5883e81fd0c88fdcf4b8e4a4bef58356ca87cec550545fae7d9b58cbb4384f52cee2887765198aea3fb0aa23aa90
   languageName: node
   linkType: hard
 
@@ -1198,6 +1233,7 @@ __metadata:
   dependencies:
     "@discordjs/rest": ^1.1.0
     "@infinite-fansub/discord-client": ^0.9.5
+    "@infinite-fansub/erela-module": ^0.6.0
     "@infinite-fansub/logger": ^2.1.0
     "@types/node": ^18.7.14
     colours.js: ^3.1.2
