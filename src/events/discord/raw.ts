@@ -1,6 +1,6 @@
 import { Event, IClientEvents } from "@infinite-fansub/discord-client";
-import { VoicePacket }          from "erela.js";
-import { client }               from "../../nya";
+import { VoicePacket } from "erela.js";
+import { client } from "../../nya";
 
 interface NyaEvents extends IClientEvents {
 	raw: [d: VoicePacket];
@@ -12,8 +12,8 @@ interface IEvent<E extends keyof NyaEvents> extends Omit<Event<any>, "event"> {
 
 export default <IEvent<"raw">>{
 	event: "raw",
-	type:  "on",
+	type: "on",
 	async run(d) {
-		client.manager.updateVoiceState(d);
+		client.erela.manager.updateVoiceState(d);
 	},
 };

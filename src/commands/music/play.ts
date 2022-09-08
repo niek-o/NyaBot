@@ -30,7 +30,7 @@ export default <ISlashCommand>{
 		}
 
 		// Create a new player. This will return the player if it already exists.
-		const player = client.client.manager.create({
+		const player = client.erela.manager.create({
 			guild: interaction.guild.id,
 			voiceChannel: interaction.member.voice.channel.id,
 			textChannel: interaction.channel.id,
@@ -51,7 +51,7 @@ export default <ISlashCommand>{
 		const query = interaction.options.getString("query", true);
 
 		const req = async (i: string) =>
-			await client.manager.search(i, interaction.user)
+			await client.erela.manager.search(i, interaction.user)
 				.catch((error) => {
 					logger.error(error);
 				});

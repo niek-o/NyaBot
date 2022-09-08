@@ -18,7 +18,7 @@ export default <ISlashCommand>{
 			return;
 		}
 
-		const player = client.client.manager.get(interaction.guild.id);
+		const player = client.erela.manager.get(interaction.guild.id);
 		if (!player) {
 			return interaction.reply({ embeds: [getBaseErrorEmbed("There is no player for this guild.")] });
 		}
