@@ -1,6 +1,6 @@
 import { ISlashCommand }                                       from "@infinite-fansub/discord-client";
 import { AttachmentBuilder, GuildMember, SlashCommandBuilder } from "discord.js";
-import { getBaseEmbed }                     from "../../utils/logic";
+import { getBaseEmbed }                                        from "../../utils/logic";
 import nyaOptions                                              from "../../config";
 
 export default <ISlashCommand>{
@@ -17,13 +17,15 @@ export default <ISlashCommand>{
 			return;
 		}
 		
+		await interaction.deferReply()
+		
 		const BASE_IP = nyaOptions.imageAPI.host + ":" + nyaOptions.imageAPI.port;
 		
 		const img = await fetch(BASE_IP + "/cat");
 		
 		const attachment = new AttachmentBuilder(Buffer.from(await img.json(), "base64"), { name: "cat.png" });
 		
-		await interaction.reply({
+		await interaction.editReply({
 			embeds: [
 				getBaseEmbed(
 					interaction,

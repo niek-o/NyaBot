@@ -24,13 +24,15 @@ export default <ISlashCommand>{
 			return;
 		}
 		
+		await interaction.deferReply()
+		
 		const BASE_IP = nyaOptions.imageAPI.host + ":" + nyaOptions.imageAPI.port;
 		
 		const folder = interaction.options.getString("folder", true);
 		const url    = interaction.options.getString("url", true);
 		
 		if (!url.match(/\.(gif|jpg|jpeg|tiff|png)$/i)) {
-			return interaction.reply({
+			return interaction.editReply({
 				embeds: [
 					getBaseErrorEmbed("Invalid URL")
 				]
@@ -47,7 +49,7 @@ export default <ISlashCommand>{
 			})
 		});
 		
-		await interaction.reply({
+		await interaction.editReply({
 			embeds: [
 				getBaseEmbed(
 					interaction,
