@@ -56,21 +56,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@discordjs/rest@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@discordjs/rest@npm:1.1.0"
-  dependencies:
-    "@discordjs/collection": ^1.0.1
-    "@sapphire/async-queue": ^1.5.0
-    "@sapphire/snowflake": ^3.2.2
-    discord-api-types: ^0.37.3
-    file-type: ^17.1.6
-    tslib: ^2.4.0
-    undici: ^5.9.1
-  checksum: b216d5b217bf70a713480738851a0e607cbed267a0ad60942268f9761c605aac6552fd9cdda56bcabe332f6e5ccb5b7ce9911645e24d3d9342ed6f18dccc6b94
-  languageName: node
-  linkType: hard
-
 "@infinite-fansub/discord-client@npm:^0.9.5":
   version: 0.9.5
   resolution: "@infinite-fansub/discord-client@npm:0.9.5"
@@ -591,13 +576,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/async-queue@npm:^1.5.0":
-  version: 1.5.0
-  resolution: "@sapphire/async-queue@npm:1.5.0"
-  checksum: 983dbd1fd1b1798496e5edb6a0db7e4d90015160e1028f20475eab0a92625513f1e8d938bc0305811a9cec461c94e01b1e4191615ff03ba49356f568f3255250
-  languageName: node
-  linkType: hard
-
 "@sapphire/shapeshift@npm:^3.5.1":
   version: 3.5.1
   resolution: "@sapphire/shapeshift@npm:3.5.1"
@@ -779,13 +757,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"discord-api-types@npm:^0.37.3":
-  version: 0.37.5
-  resolution: "discord-api-types@npm:0.37.5"
-  checksum: 10a23b813d9a30d836aa27169f768883eeed971ab67e58325ff272bfe6b63b169d727ae983d7c1b69c7e0b02ed9072e66e79319ce48174b36cd4a2a5fafe2e9f
-  languageName: node
-  linkType: hard
-
 "discord.js@npm:^14.1.2":
   version: 14.1.2
   resolution: "discord.js@npm:14.1.2"
@@ -837,7 +808,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"file-type@npm:^17.1.4, file-type@npm:^17.1.6":
+"file-type@npm:^17.1.4":
   version: 17.1.6
   resolution: "file-type@npm:17.1.6"
   dependencies:
@@ -1196,7 +1167,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "nyabot@workspace:."
   dependencies:
-    "@discordjs/rest": ^1.1.0
     "@infinite-fansub/discord-client": ^0.9.5
     "@infinite-fansub/logger": ^2.1.0
     "@types/node": ^18.7.14
@@ -1623,13 +1593,6 @@ __metadata:
   version: 5.8.1
   resolution: "undici@npm:5.8.1"
   checksum: 0d5d8b9654f031a5490dcd89cd73db452ad51b06def08ce4ac07a1a46564cb6f039be4862bc013ec45b7ca465a468eb5c4caa761a26541958307f8d75878129a
-  languageName: node
-  linkType: hard
-
-"undici@npm:^5.9.1":
-  version: 5.10.0
-  resolution: "undici@npm:5.10.0"
-  checksum: 7ba2b71dccc74cd2bdf645b83e9aaef374ae04855943d0a2f42a3d0b9e5556f37cc9b5156fb5288277a2fa95fd46a56f3ae0d5cf73db3f008d75ec41104b136c
   languageName: node
   linkType: hard
 

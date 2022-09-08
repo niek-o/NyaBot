@@ -1,11 +1,13 @@
 ## Current features:
 
 - Music
+- Images
 
-## Prerequisites
+## Recommended setup
+- [ImageAPI](https://github.com/niek-o/imageAPI)
 - [Yarn 3](https://yarnpkg.com/getting-started/install)
 - Java 13 (for [LavaLink](https://github.com/freyacodes/Lavalink))
-- [Node.js](https://nodejs.org/en/) >= 16.9
+- [Node.js](https://nodejs.org/en/) >= 18.9
 - [LavaLink](https://github.com/freyacodes/Lavalink)
 
 ## How to set up

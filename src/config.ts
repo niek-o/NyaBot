@@ -2,6 +2,7 @@ import { INyaOptions } from "./utils/types/types";
 
 const nyaOptions: INyaOptions = {
 	token:  "",
+	guildId: "",
 	music:  {
 		options:  {
 			leaveOnQueueEnd: true,
@@ -31,6 +32,10 @@ const nyaOptions: INyaOptions = {
 		emoji:      "",
 		errorEmoji: "",
 	},
+	imageAPI: {
+		host: "",
+		port: "",
+	}
 };
 
 export default nyaOptions;
