@@ -6,7 +6,8 @@ import { client } from "../../nya";
 import { getBaseEmbed, timeout } from "../../utils/logic";
 
 export default <Event<"queueEnd", ErelaEvents>>{
-	name: "queueEnd",
+	event: "queueEnd",
+	type: "on",
 	async run(player) {
 		const channel = client.channels.cache.find((channel) => channel.id === player.textChannel);
 

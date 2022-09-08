@@ -5,8 +5,10 @@ import { client } from "../../nya";
 import { getBaseEmbed, getThumbnail } from "../../utils/logic";
 
 export default <Event<"trackStart", ErelaEvents>>{
-	name: "trackStart",
-	async execute(player, track) {
+	event: "trackStart",
+	type: "on",
+
+	async run(player, track) {
 		const channel = client.channels.cache.find((channel) => channel.id === player.textChannel);
 
 		if (channel instanceof TextChannel) {

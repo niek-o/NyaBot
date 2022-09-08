@@ -14,19 +14,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@discordjs/builders@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@discordjs/builders@npm:1.1.0"
-  dependencies:
-    "@sapphire/shapeshift": ^3.5.1
-    discord-api-types: ^0.36.3
-    fast-deep-equal: ^3.1.3
-    ts-mixer: ^6.0.1
-    tslib: ^2.4.0
-  checksum: 95a30b151447bfb625f3f325dc06476a58a050930b07cd0e9d6f66f62cee49e3d68cea137b436bf64559d47add7900574b732ba15e707cdda68a320020988c49
-  languageName: node
-  linkType: hard
-
 "@discordjs/builders@npm:^1.2.0":
   version: 1.2.0
   resolution: "@discordjs/builders@npm:1.2.0"
@@ -61,21 +48,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@discordjs/rest@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@discordjs/rest@npm:1.0.1"
-  dependencies:
-    "@discordjs/collection": ^1.0.1
-    "@sapphire/async-queue": ^1.3.2
-    "@sapphire/snowflake": ^3.2.2
-    discord-api-types: ^0.36.3
-    file-type: ^17.1.4
-    tslib: ^2.4.0
-    undici: ^5.8.0
-  checksum: d83b57de5b71eae15ecabc5da0767d70be9cd4667c872b2fdfd933670a6f162f9815208fe5a6dd018d38d8d25dea6dde62a7285e08b03b66c1896308605c2850
-  languageName: node
-  linkType: hard
-
 "@discordjs/rest@npm:^1.1.0":
   version: 1.1.0
   resolution: "@discordjs/rest@npm:1.1.0"
@@ -91,27 +63,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@infinite-fansub/discord-client@npm:*, @infinite-fansub/discord-client@npm:^0.12.0":
-  version: 0.12.0
-  resolution: "@infinite-fansub/discord-client@npm:0.12.0"
+"@infinite-fansub/discord-client@npm:*, @infinite-fansub/discord-client@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@infinite-fansub/discord-client@npm:0.14.0"
   dependencies:
     "@infinite-fansub/logger": "*"
-    discord.js: ^14.1.2
+    discord.js: ^14.3.0
     mongoose: ^6.3.1
     redis: ^4.0.6
     redis-om: ^0.3.3
     tslib: ^2.4.0
-  checksum: 196333f242a788036a02fb63b732e11fa254630bfed6bc5cb66b890c1ea20ee5ecc8dd171da57b7094262351b37be95e5f072a3d6cef860c68cf771bcf1f8cb3
+  checksum: 60acf7e07959569a5864b3b35d471bd97075b25240ee51f70b798263474aeb037a8d86190f84b36fea7a2a13926a0ae5948f9a38410d3984a35b9a365d3cb966
   languageName: node
   linkType: hard
 
-"@infinite-fansub/erela-module@npm:^0.6.0":
-  version: 0.6.0
-  resolution: "@infinite-fansub/erela-module@npm:0.6.0"
+"@infinite-fansub/erela-module@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@infinite-fansub/erela-module@npm:1.0.0"
   dependencies:
     "@infinite-fansub/discord-client": "*"
     erela.js: "github:MenuDocs/erela.js#build"
-  checksum: 1df121587d4c6c1188458e4e5ae4c1d9cdb75e1c1e8f6ccc087696e173b623346f314a5bcb2104d391f618ccd28439e495c1e5a8e67f383fdf34c100b7fbbbfc
+  checksum: 2b1c3d5efc9112285c9bdd8ffdddfe23753f2bc1760c4e7ac26f06de634c0254678f81c087ffc557020f97d7da614904a7d751bee41bc6cba8287fb518344a11
   languageName: node
   linkType: hard
 
@@ -614,13 +586,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/async-queue@npm:^1.3.2":
-  version: 1.3.2
-  resolution: "@sapphire/async-queue@npm:1.3.2"
-  checksum: 348f35a278bff68cb6d5e2c2219b03ce66243162522003bb14426e5fdad251300bea8ef3883043eb034c181dddd52296a519e9f377075a5b31074807fe163e76
-  languageName: node
-  linkType: hard
-
 "@sapphire/async-queue@npm:^1.5.0":
   version: 1.5.0
   resolution: "@sapphire/async-queue@npm:1.5.0"
@@ -802,36 +767,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"discord-api-types@npm:^0.36.3":
-  version: 0.36.3
-  resolution: "discord-api-types@npm:0.36.3"
-  checksum: 3089c0fb37425dc5df03c76d82988d43fcc272699b06a02fc830d0a3bef550009aaebdf6d646529e8a7ccea76ae3f43b099d736ea5ef37a0be143142ab49871d
-  languageName: node
-  linkType: hard
-
 "discord-api-types@npm:^0.37.3":
   version: 0.37.5
   resolution: "discord-api-types@npm:0.37.5"
   checksum: 10a23b813d9a30d836aa27169f768883eeed971ab67e58325ff272bfe6b63b169d727ae983d7c1b69c7e0b02ed9072e66e79319ce48174b36cd4a2a5fafe2e9f
-  languageName: node
-  linkType: hard
-
-"discord.js@npm:^14.1.2":
-  version: 14.1.2
-  resolution: "discord.js@npm:14.1.2"
-  dependencies:
-    "@discordjs/builders": ^1.1.0
-    "@discordjs/collection": ^1.0.1
-    "@discordjs/rest": ^1.0.1
-    "@sapphire/snowflake": ^3.2.2
-    "@types/ws": ^8.5.3
-    discord-api-types: ^0.36.3
-    fast-deep-equal: ^3.1.3
-    lodash.snakecase: ^4.1.1
-    tslib: ^2.4.0
-    undici: ^5.8.0
-    ws: ^8.8.1
-  checksum: f392bbe8b469d90fb4beceafa052787facc38224d1bfa679f3e60f1dd10e83cad3cae33fe1c11e04c615ce4f73c2a6a0d9265b449d1b9b57b93b31e9a66ac106
   languageName: node
   linkType: hard
 
@@ -886,7 +825,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"file-type@npm:^17.1.4, file-type@npm:^17.1.6":
+"file-type@npm:^17.1.6":
   version: 17.1.6
   resolution: "file-type@npm:17.1.6"
   dependencies:
@@ -1246,8 +1185,8 @@ __metadata:
   resolution: "nyabot@workspace:."
   dependencies:
     "@discordjs/rest": ^1.1.0
-    "@infinite-fansub/discord-client": ^0.12.0
-    "@infinite-fansub/erela-module": ^0.6.0
+    "@infinite-fansub/discord-client": ^0.14.0
+    "@infinite-fansub/erela-module": ^1.0.0
     "@infinite-fansub/logger": ^2.1.0
     "@types/node": ^18.7.16
     colours.js: ^3.1.2
@@ -1665,13 +1604,6 @@ __metadata:
   version: 4.16.0
   resolution: "undici@npm:4.16.0"
   checksum: 5e88c2b3381085e25ed1d1a308610ac7ee985f478ac705af7a8e03213536e10f73ef8dd8d85e6ed38948d1883fa0ae935e04357c317b0f5d3d3c0211d0c8c393
-  languageName: node
-  linkType: hard
-
-"undici@npm:^5.8.0":
-  version: 5.8.1
-  resolution: "undici@npm:5.8.1"
-  checksum: 0d5d8b9654f031a5490dcd89cd73db452ad51b06def08ce4ac07a1a46564cb6f039be4862bc013ec45b7ca465a468eb5c4caa761a26541958307f8d75878129a
   languageName: node
   linkType: hard
 

@@ -1,12 +1,12 @@
 import { Event } from "@infinite-fansub/discord-client";
 import { ActivityType } from "discord.js";
-import { NyaClient } from "../../nya";
 import { asciify } from "../../utils/asciifier";
+import { client as NyaClient } from "../../nya";
 
 export default <Event<"ready">>{
 	event: "ready",
 	type: "once",
-	async run(client: NyaClient) {
+	async run(client: typeof NyaClient) {
 		if (!client.user) return;
 		await asciify(client.user.avatarURL({ extension: "jpg", size: 1024 })!, true)
 			.then((ascii: string) => logger.print(ascii))

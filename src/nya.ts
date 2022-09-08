@@ -41,6 +41,10 @@ export const client = new InfiniteClient<ErelaOptions>({
 		nyaOptions.music.lavalink
 	],
 	token: nyaOptions.token
-}).withModules([{ name: "erela", ctor: ErelaModule }]);
+}).withModules<[
+	{ name: "erela", ctor: new (client: InfiniteClient) => ErelaModule }
+]>([
+	{ name: "erela", ctor: ErelaModule }
+]);
 
 //#endregion
