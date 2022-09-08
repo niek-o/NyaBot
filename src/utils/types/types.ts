@@ -7,6 +7,9 @@
  */
 export interface INyaOptions {
 	token: string;
+	/** Guild id for guild-specific commands */
+	guildId: string;
+	imageAPI: IImageAPIOptions;
 	music: IMusicOptions;
 	logger: ILoggerOptions;
 }
@@ -66,6 +69,13 @@ interface ILoggerOptions {
 	emoji: string;
 	/** The emoji that is used for error logs */
 	errorEmoji: string;
+}
+
+interface IImageAPIOptions {
+	/** The image API address */
+	host: string;
+	/** The image API port */
+	port: string;
 }
 
 //#endregion
