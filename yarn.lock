@@ -666,10 +666,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.7.15":
-  version: 18.7.15
-  resolution: "@types/node@npm:18.7.15"
-  checksum: 1435fc7fe44744467a3ba8ace646455be228516530dbb3db64a03cca6abcfdc5ba2e48a3eafc71f25f836d2ca871132361c58a5e760237a53674cb09151147d9
+"@types/node@npm:^18.7.16":
+  version: 18.7.16
+  resolution: "@types/node@npm:18.7.16"
+  checksum: 01a3d35c764a3f0e7370b56e1ad4203731131883c65784e020009014171b3f53c4649cde6c7aa4f1026b907ee87ef6ae6ece2bc518151dc7b81100fe8b1db3ad
   languageName: node
   linkType: hard
 
@@ -872,17 +872,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"erela.js@https://github.com/menudocs/erela.js#head=build":
-  version: 2.3.3
-  resolution: "erela.js@https://github.com/menudocs/erela.js.git#commit=4f2011caa914e768b8338b584fba7aa42267bba8"
-  dependencies:
-    "@discordjs/collection": ^0.2.1
-    undici: ^4.11.0
-    ws: ^8.1.0
-  checksum: b346db4ae594a737cc997e03f378c92ba2dd5883e81fd0c88fdcf4b8e4a4bef58356ca87cec550545fae7d9b58cbb4384f52cee2887765198aea3fb0aa23aa90
-  languageName: node
-  linkType: hard
-
 "exif-parser@npm:^0.1.12":
   version: 0.1.12
   resolution: "exif-parser@npm:0.1.12"
@@ -1043,9 +1032,9 @@ __metadata:
   linkType: hard
 
 "jsonc-parser@npm:^3.0.0":
-  version: 3.1.0
-  resolution: "jsonc-parser@npm:3.1.0"
-  checksum: 81b00c565c60cb1b400523a918d42ad9c7bb3d9cf34c708bf78d37c8c496ecd670c3ff8828f2f60aa6e6627ef4287982794ddf92261ea71e320973c54b29fb22
+  version: 3.2.0
+  resolution: "jsonc-parser@npm:3.2.0"
+  checksum: 946dd9a5f326b745aa326d48a7257e3f4a4b62c5e98ec8e49fa2bdd8d96cef7e6febf1399f5c7016114fd1f68a1c62c6138826d5d90bc650448e3cf0951c53c7
   languageName: node
   linkType: hard
 
@@ -1260,16 +1249,15 @@ __metadata:
     "@infinite-fansub/discord-client": ^0.12.0
     "@infinite-fansub/erela-module": ^0.6.0
     "@infinite-fansub/logger": ^2.1.0
-    "@types/node": ^18.7.15
+    "@types/node": ^18.7.16
     colours.js: ^3.1.2
     discord.js: ^14.3.0
-    erela.js: "https://github.com/menudocs/erela.js#head=build"
     jimp: ^0.16.1
-    typedoc: ^0.23.10
+    typedoc: ^0.23.14
     typedoc-plugin-coverage: ^2.0.0
-    typedoc-plugin-missing-exports: ^0.23.0
+    typedoc-plugin-missing-exports: ^1.0.0
     typedoc-theme-hierarchy: ^3.0.0
-    typescript: ^4.7.4
+    typescript: ^4.8.3
     youtubei: ^1.0.0-rc.5
   languageName: unknown
   linkType: soft
@@ -1608,12 +1596,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc-plugin-missing-exports@npm:^0.23.0":
-  version: 0.23.0
-  resolution: "typedoc-plugin-missing-exports@npm:0.23.0"
+"typedoc-plugin-missing-exports@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "typedoc-plugin-missing-exports@npm:1.0.0"
   peerDependencies:
     typedoc: 0.22.x || 0.23.x
-  checksum: b3fc9eccca88a9ffb686d1e9ba923178c54b4bb7e496823b7b971b6f6baa957263f7ccff058f5b0e579fee49c93da09dbdc3a4dafd713960d93b2832de8094e1
+  checksum: 11ef3ba347a88924397f2f2f84216e5d41f9714baba671e4f9a86dd4de22d5e5e47477a295776c4f489be91065a152fedcbfa9aa6cba90499894e6670441ce31
   languageName: node
   linkType: hard
 
@@ -1628,7 +1616,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc@npm:^0.23.10":
+"typedoc@npm:^0.23.14":
   version: 0.23.14
   resolution: "typedoc@npm:0.23.14"
   dependencies:
@@ -1644,7 +1632,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.7.4":
+"typescript@npm:^4.8.3":
   version: 4.8.3
   resolution: "typescript@npm:4.8.3"
   bin:
@@ -1654,7 +1642,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.7.4#~builtin<compat/typescript>":
+"typescript@patch:typescript@^4.8.3#~builtin<compat/typescript>":
   version: 4.8.3
   resolution: "typescript@patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=f456af"
   bin:
