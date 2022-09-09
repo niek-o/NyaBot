@@ -19,9 +19,9 @@ export default <ISlashCommand>{
 		
 		await interaction.deferReply()
 		
-		const BASE_IP = nyaOptions.imageAPI.host + ":" + nyaOptions.imageAPI.port;
+		const apiUrl = `http://${nyaOptions.imageAPI.host}:${nyaOptions.imageAPI.port}`;
 		
-		const img = await fetch(BASE_IP + "/cat");
+		const img = await fetch(apiUrl + "/cat");
 		
 		const attachment = new AttachmentBuilder(Buffer.from(await img.json(), "base64"), { name: "cat.png" });
 		
