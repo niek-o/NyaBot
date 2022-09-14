@@ -26,7 +26,7 @@ export default <ISlashCommand>{
 		
 		await interaction.deferReply()
 		
-		const BASE_IP = nyaOptions.imageAPI.host + ":" + nyaOptions.imageAPI.port;
+		const apiUrl = `http://${nyaOptions.imageAPI.host}:${nyaOptions.imageAPI.port}`;
 		
 		const folder = interaction.options.getString("folder", true);
 		const url    = interaction.options.getString("url", true);
@@ -39,7 +39,7 @@ export default <ISlashCommand>{
 			});
 		}
 		
-		fetch(BASE_IP, {
+		fetch(apiUrl, {
 			method:  "POST",
 			headers: {
 				"content-type": "application/json"
