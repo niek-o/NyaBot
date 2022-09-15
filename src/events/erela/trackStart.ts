@@ -7,7 +7,6 @@ import { getBaseEmbed, getThumbnail } from "../../utils/logic";
 export default <Event<"trackStart", ErelaEvents>>{
 	event: "trackStart",
 	type: "on",
-
 	async run(player, track) {
 		const channel = client.channels.cache.find((channel) => channel.id === player.textChannel);
 
