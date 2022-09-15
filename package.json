@@ -7,7 +7,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^18.7.16",
+    "@types/node": "^18.7.18",
     "typedoc": "^0.23.14",
     "typedoc-plugin-coverage": "^2.0.0",
     "typedoc-plugin-missing-exports": "^1.0.0",
@@ -16,12 +16,12 @@
   },
   "dependencies": {
     "@discordjs/rest": "^1.1.0",
-    "@infinite-fansub/discord-client": "^0.14.0",
+    "@infinite-fansub/discord-client": "^0.17.0",
     "@infinite-fansub/erela-module": "^1.0.0",
     "@infinite-fansub/logger": "^2.1.0",
     "colours.js": "^3.1.2",
     "discord.js": "^14.3.0",
-    "jimp": "^0.16.1",
+    "jimp": "^0.16.2",
     "youtubei": "^1.0.0-rc.5"
   },
   "scripts": {
