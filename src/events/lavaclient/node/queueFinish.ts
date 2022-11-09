@@ -5,7 +5,7 @@ import { getBaseEmbed, timeout } from "../../../utils/logic";
 import { Queue } from "@lavaclient/queue";
 
 export default {
-    name: "queueEnd",
+    name: "queueFinish",
     async execute(queue: Queue) {
         const channel = client.channels.cache.find((channel) => channel.id === queue.channel);
 

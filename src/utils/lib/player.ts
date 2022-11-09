@@ -26,7 +26,7 @@ export class GuildPlayer {
         if (!this.player?.connected) {
             this.player ??= client.manager.createPlayer(interaction.guild.id);
             this.player.queue.channel = interaction.channel.id;
-            this.player.connect(interaction.member.voice.channel, { deafened: true });
+            this.player.connect(interaction.member.voice.channel, { deafened: nyaOptions.music.options.deafenOnJoin });
         }
 
         this.player.setVolume(nyaOptions.music.options.volume)
