@@ -19,7 +19,7 @@ export default {
 
         if (nyaOptions.music.options.leaveOnQueueEnd && !queue.player.playing) {
             queue.player.disconnect();
-            await queue.player.node.destroyPlayer(queue.player.guildId);
+            await queue.player.destroy();
         }
     }
 };
