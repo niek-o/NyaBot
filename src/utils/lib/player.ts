@@ -5,7 +5,7 @@ import { readdirSync } from "node:fs";
 import { join } from "node:path";
 import { Addable } from "@lavaclient/queue";
 import { getBaseEmbed, getBaseErrorEmbed, getThumbnail } from "../logic";
-import Config from "../../config";
+import nyaOptions from "../../config";
 
 export class GuildPlayer {
     public player: Player;
@@ -29,7 +29,7 @@ export class GuildPlayer {
             this.player.connect(interaction.member.voice.channel, { deafened: true });
         }
 
-        this.player.setVolume(Config.music.options.volume)
+        this.player.setVolume(nyaOptions.music.options.volume)
 
         this.playerEventFiles.forEach(async (f) => {
             const event = (await import(`../../events/lavaclient/player/${ f }`)).default;
