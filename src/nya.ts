@@ -71,7 +71,7 @@ export const client = new NyaClient({
             if (guild) {
                 guild.shard.send(payload);
             }
-        },
+        }
     })
 );
 
