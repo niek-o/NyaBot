@@ -20,7 +20,7 @@ export default <ISlashCommand>{
             subcommand
                 .setName("stop")
                 .setDescription("Stop the loop.")),
-    post: "910517569553829888",
+    post: "GLOBAL",
 
     async execute(interaction) {
         if (
