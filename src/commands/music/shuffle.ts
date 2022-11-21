@@ -24,11 +24,11 @@ export default <ISlashCommand>{
         const player = guildPlayer.player;
 
         if (!player) {
-            return interaction.reply({ embeds: [getBaseErrorEmbed("There is no player for this guild.")] });
+            return interaction.editReply({ embeds: [getBaseErrorEmbed("There is no player for this guild.")] });
         }
 
         if (!interaction.member.voice.channel) {
-            return interaction.reply({ embeds: [getBaseErrorEmbed("You need to join a voice channel.")] });
+            return interaction.editReply({ embeds: [getBaseErrorEmbed("You need to join a voice channel.")] });
         }
 
         if (interaction.member.voice.channel.id !== player.channelId) {

@@ -24,7 +24,7 @@ export default <ISlashCommand>{
         const player = guildPlayer.player;
 
         if (!player) {
-            return interaction.reply({ embeds: [getBaseErrorEmbed("There is no player for this guild.")] });
+            return interaction.editReply({ embeds: [getBaseErrorEmbed("There is no player for this guild.")] });
         }
 
         if (!player.queue.current || !player.queue.current.length) {

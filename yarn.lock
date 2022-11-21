@@ -58,16 +58,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@infinite-fansub/discord-client@npm:^0.17.9":
-  version: 0.17.9
-  resolution: "@infinite-fansub/discord-client@npm:0.17.9"
+"@infinite-fansub/discord-client@npm:^0.17.12":
+  version: 0.17.12
+  resolution: "@infinite-fansub/discord-client@npm:0.17.12"
   dependencies:
     "@infinite-fansub/logger": "*"
-    discord.js: ^14.5.0
+    discord.js: ^14.6.0
     mongoose: ^6.3.1
     redis-om: "github:Didas-git/proposal-redis-om-v2"
-    tslib: ^2.4.0
-  checksum: 6396cafb65604662d906533e4b883382b4e3d3fdf1af93611a98b873386d971eda05613ccddf1eafdcb5eed3af636da60f8904a1f3a9f47eb2c1f2c4f7b411f6
+    tslib: ^2.4.1
+  checksum: 122a01e0ab5e11ccd6879ad7c3583357d97a5c1edab218f4048be6cad818b9e5b7c90af215ba58f1b2b08c1399acb0546358dae55bbbea1910525cf4a059d6a2
   languageName: node
   linkType: hard
 
@@ -783,7 +783,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"discord.js@npm:^14.5.0, discord.js@npm:^14.6.0":
+"discord.js@npm:^14.6.0":
   version: 14.6.0
   resolution: "discord.js@npm:14.6.0"
   dependencies:
@@ -1203,7 +1203,7 @@ __metadata:
   resolution: "nyabot@workspace:."
   dependencies:
     "@discordjs/rest": ^1.3.0
-    "@infinite-fansub/discord-client": ^0.17.9
+    "@infinite-fansub/discord-client": ^0.17.12
     "@infinite-fansub/logger": ^2.1.0
     "@lavaclient/queue": ^2.1.1
     "@lavaclient/types": ^2.1.1
@@ -1559,6 +1559,13 @@ __metadata:
   version: 2.4.0
   resolution: "tslib@npm:2.4.0"
   checksum: 8c4aa6a3c5a754bf76aefc38026134180c053b7bd2f81338cb5e5ebf96fefa0f417bff221592bf801077f5bf990562f6264fecbc42cd3309b33872cb6fc3b113
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^2.4.1":
+  version: 2.4.1
+  resolution: "tslib@npm:2.4.1"
+  checksum: 19480d6e0313292bd6505d4efe096a6b31c70e21cf08b5febf4da62e95c265c8f571f7b36fcc3d1a17e068032f59c269fab3459d6cd3ed6949eafecf64315fca
   languageName: node
   linkType: hard
 

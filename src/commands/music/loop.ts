@@ -2,12 +2,25 @@ import { ISlashCommand } from "@infinite-fansub/discord-client";
 import { GuildMember, SlashCommandBuilder, TextChannel } from "discord.js";
 import { getBaseEmbed, getBaseErrorEmbed } from "../../utils/logic";
 import { GuildPlayer } from "../../utils/lib/player";
+import { LoopType } from "@lavaclient/queue";
 
 export default <ISlashCommand>{
     data: new SlashCommandBuilder()
-        .setName("pause")
-        .setDescription("Pause the current track."),
-    post: "GLOBAL",
+        .setName("loop")
+        .setDescription("Loop music!")
+        .addSubcommand(subcommand =>
+            subcommand
+                .setName("queue")
+                .setDescription("Loop the current queue."))
+        .addSubcommand(subcommand =>
+            subcommand
+                .setName("song")
+                .setDescription("Loop the current song."))
+        .addSubcommand(subcommand =>
+            subcommand
+                .setName("stop")
+                .setDescription("Stop the loop.")),
+    post: "910517569553829888",
 
     async execute(interaction) {
         if (
@@ -37,7 +50,19 @@ export default <ISlashCommand>{
             return interaction.reply({ embeds: [getBaseErrorEmbed("There is no music playing.")] });
         }
 
-        await player.pause(true);
-        return interaction.reply({ embeds: [getBaseEmbed(interaction, "Paused", `${ player.queue.current.title } has been paused.`)] });
+        if (interaction.options.getSubcommand() === "queue") {
+            await player.queue.setLoop(LoopType.Queue);
+            return interaction.reply({ embeds: [getBaseEmbed(interaction, "Loop", "The current queue is being looped.")] });
+        }
+
+        if (interaction.options.getSubcommand() === "song") {
+            await player.queue.setLoop(LoopType.Song);
+            return interaction.reply({ embeds: [getBaseEmbed(interaction, "Loop", `${ player.queue.current.title } is being looped.`)] });
+        }
+
+        if (interaction.options.getSubcommand() === "stop") {
+            await player.queue.setLoop(LoopType.None);
+            return interaction.reply({ embeds: [getBaseEmbed(interaction, "Loop", "Loop has been ended")] });
+        }
     }
 };

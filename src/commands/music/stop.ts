@@ -30,11 +30,11 @@ export default <ISlashCommand>{
         }
 
         if (interaction.member.voice.channel.id !== player.channelId) {
-            return interaction.editReply({ embeds: [getBaseErrorEmbed("You're not in the same voice channel.")] });
+            return interaction.reply({ embeds: [getBaseErrorEmbed("You're not in the same voice channel.")] });
         }
 
         if (!player.queue.current || !player.queue.current.length) {
-            return interaction.editReply({ embeds: [getBaseErrorEmbed("There is no music playing.")] });
+            return interaction.reply({ embeds: [getBaseErrorEmbed("There is no music playing.")] });
         }
 
         await player.destroy();
