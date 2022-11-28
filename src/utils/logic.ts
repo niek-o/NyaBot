@@ -138,6 +138,12 @@ export function generateQueue(player: Player) {
 export async function getThumbnail(track: TrackInfo): Promise<string> {
     const youtube = new Client();
 
+    const searchResult = await youtube.search(`${ track.author } - ${ track.title }`, { type: "video" });
+
+    if (searchResult.items[0]) {
+        return searchResult.items[0].thumbnails.best as string;
+    }
+
     const searchResultByURI = await youtube.getVideo(track.identifier);
 
     if (!searchResultByURI) {
