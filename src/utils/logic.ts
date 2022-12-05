@@ -5,6 +5,7 @@ import { client } from "../nya";
 import { EmbedBuilder, GuildMember, Interaction, TextChannel } from "discord.js";
 import { TrackInfo } from "@lavaclient/types/v3";
 import { Player } from "lavaclient";
+import { Anilist, Media, MediaTitle, MediaType } from "anilist";
 
 /**
  * A timeout generator (in ms)
@@ -196,6 +197,129 @@ export function getBaseErrorEmbed(error?: string) {
         .setDescription(error
             ? error
             : null);
+}
+
+//#endregion
+
+//#region Anime/manga
+/**
+ * Get the relations for the media
+ *
+ * @param id - The ID you want to get the relations for
+ *
+ * @returns the data based on the ID
+ *
+ * @author Niek
+ */
+export async function getRelationById(id: number) {
+    const relationsQuery = Anilist.query.media({ id: id })
+        .withTitles("english", "romaji")
+        .withSiteUrl()
+        .withType();
+
+    return await relationsQuery.fetch()
+        .catch((e) => {
+            logger.error(e);
+            return null;
+        });
+}
+
+/**
+ * Get the relations details
+ *
+ * @param relations - The relations you want to query for
+ *
+ * @returns the relation details
+ *
+ * @author Niek
+ */
+export async function getRelationQueries(relations: Array<Media>) {
+    const relationQueries: Array<{ title: MediaTitle | null; siteUrl: string | null; type: MediaType | null; }> = [];
+
+    for await (const relation of relations) {
+        const id = relation.id ?? 0;
+        const rel = await getRelationById(id);
+        if (rel !== null) {
+            relationQueries.push(rel);
+        }
+    }
+
+    return relationQueries;
+}
+
+/**
+ * Get the relations formatted for embed fields
+ *
+ * @param relationsArray - The array with relations
+ *
+ * @returns The relations formatted for embed fields
+ *
+ * @author Niek
+ */
+export function getRelationObject(relationsArray: Array<{ title: MediaTitle | null, siteUrl: string | null; type: MediaType | null; }>) {
+    return relationsArray.map((relation, i) => {
+        return {
+            name: `Relation ${ i + 1 } (${ capitalize(relation.type ?? "") }):`,
+            value: `[${ relation.title?.english ?? relation.title?.romaji }](${ relation.siteUrl })`
+        };
+    });
+}
+
+/**
+ * Format an anime or manga description
+ *
+ * @param description - The description you want to format
+ *
+ * @returns The formatted anime or manga description
+ *
+ * @author Niek
+ */
+export function formatDescription(description: string) {
+    return description
+        .replace(/<\/?[^>]+(>|$)/g, "")
+        .replaceAll("\n", "\n\n")
+        .replaceAll("&mdash;", "ー");
+}
+
+/**
+ * Properly capitalize a string
+ *
+ * @param string - The string you want to capitalize
+ *
+ * @returns A properly capitalized string
+ *
+ * @author Niek
+ */
+export function capitalize(string: string) {
+    const lowerCase = string.toLowerCase();
+    return lowerCase.charAt(0)
+        .toUpperCase() + lowerCase.slice(1);
+}
+
+/**
+ * Get the anime name
+ *
+ * @param anime - The anime you want the name of
+ *
+ * @returns The anime name for the discord autocomplete
+ *
+ * @author Niek
+ * @author DiDaS
+ */
+export function getName(anime: Media): string {
+    if (!anime.title) {
+        return "";
+    }
+
+    const { english, romaji, native } = anime.title;
+
+    return (english && english.length < 101)
+        ? english
+        : (romaji && romaji.length < 101)
+            ? romaji
+            : native
+                ? native
+                : "";
 }
 
 //#endregion
