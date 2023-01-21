@@ -25,7 +25,8 @@ const animeQuery = Anilist.query.media({ type: "ANIME" })
     .withRelations({ nodes: ["id", "type"] })
     .withId()
     .withEpisodes()
-    .withStatus();
+    .withStatus()
+    .withSiteUrl();
 
 export default <ISlashCommand>{
     data: new SlashCommandBuilder()
@@ -105,6 +106,7 @@ export default <ISlashCommand>{
         return interaction.editReply({
             embeds: [
                 getBaseEmbed(interaction, anime.title?.english ?? anime.title?.romaji ?? "", description)
+                    .setURL(anime.siteUrl)
                     .setImage(
                         anime.coverImage?.extraLarge ??
                         anime.coverImage?.large ??
